@@ -10,20 +10,14 @@
 
     <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
     <meta property="og:type" content="website">
-    <!-- Adicionamos um parâmetro aleatório no final do URL para forçar o Instagram a ver como um link NOVO -->
-    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?v=2">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?refresh=true">
     <meta property="og:title" content="SERENA LECLERC • TEZZA PROMPTS">
     <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
     
-    <!-- TÉCNICA AVANÇADA: Usar uma imagem que o Instagram não consegue processar ou ignorar -->
-    <meta property="og:image" content="none">
-    <meta property="og:image:secure_url" content="none">
-    <meta property="og:image:width" content="0">
-    <meta property="og:image:height" content="0">
+    <!-- Forçamos o robô a não encontrar imagem aqui -->
+    <meta property="og:image" content="">
     
     <meta name="twitter:card" content="summary">
-    <meta property="twitter:title" content="SERENA LECLERC • TEZZA PROMPTS">
-    <meta property="twitter:description" content="TEZZA PROMPTS OFICIAL">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,20 +34,11 @@
             --feline-gold: #ff0000;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
-        /* Splash Screen */
         #splashScreen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: black;
             display: flex;
             flex-direction: column;
@@ -67,15 +52,12 @@
 
         .moon-gif {
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 500px;
+            top: -50px; left: -50px; width: 500px;
             z-index: 10000;
             filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
             pointer-events: none;
         }
 
-        /* Morcegos */
         .bat {
             position: fixed;
             width: 120px;
@@ -106,48 +88,17 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle, rgba(20,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
             z-index: -1;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            animation: fadeInDown 1.2s ease-out;
-            width: 100%;
-            max-width: 800px;
-            z-index: 10;
-        }
-
-        .logo {
-            font-family: 'Nosifer', cursive;
-            font-size: 3.5rem;
-            font-weight: 900;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1);
-        }
-
-        .subtitle {
-            font-family: 'Marcellus', serif;
-            font-size: 1rem;
-            letter-spacing: 4px;
-            opacity: 0.9;
-            text-transform: uppercase;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-            margin-bottom: 20px;
-        }
+        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
+        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
+        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
 
         .container {
-            width: 100%;
-            max-width: 800px;
+            width: 100%; max-width: 800px;
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
@@ -160,20 +111,8 @@
             z-index: 10;
         }
 
-        .section-title {
-            font-family: 'Nosifer', cursive;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px rgba(0,0,0,0.8);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
 
-        /* CAIXA DE PROMPT ESTILO VAMPIRO */
         .prompt-box {
             background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
             background-size: 200% 100%;
@@ -192,183 +131,54 @@
             scrollbar-color: var(--accent-color) transparent;
         }
 
-        @keyframes shimmer {
-            0% { background-position: -100% 0; }
-            100% { background-position: 100% 0; }
-        }
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
 
         .metallic-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 25px;
-            display: block;
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
             background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
             background-size: 200% auto;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: shine-metal 3s linear infinite;
             text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
         }
 
-        @keyframes shine-metal {
-            to { background-position: 200% center; }
-        }
+        @keyframes shine-metal { to { background-position: 200% center; } }
 
-        /* Efeito de Sangue Escorrendo */
-        .blood-drip {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            z-index: 10;
-            pointer-events: none;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
-            opacity: 0.9;
-        }
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png'); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
 
-        /* Presas nos cantos */
-        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            z-index: 15;
-        }
-
-        /* Presas superiores */
-        .prompt-box::before {
-            top: -3px;
-            left: 30px;
-            border-top: 35px solid var(--blood-red);
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
-        }
-        .prompt-box::after {
-            top: -3px;
-            right: 30px;
-            border-top: 35px solid var(--blood-red);
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
-        }
-
-        /* Elementos extras para presas inferiores */
-        .fang-bottom-left {
-            bottom: -3px;
-            left: 30px;
-            border-bottom: 35px solid var(--blood-red);
-            filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8));
-        }
-        .fang-bottom-right {
-            bottom: -3px;
-            right: 30px;
-            border-bottom: 35px solid var(--blood-red);
-            filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8));
-        }
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
 
         .prompt-box::-webkit-scrollbar { width: 6px; }
         .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
 
-        pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Nosifer', cursive;
-            font-size: 0.9rem;
-            line-height: 2;
-            color: #ffcccc;
-            font-weight: 400;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-        }
-
-        pre strong {
-            color: var(--accent-color);
-            font-family: 'Nosifer', cursive;
-            font-size: 1.1rem;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
-        }
-
         .copy-btn {
-            display: block;
-            width: 100%;
+            display: block; width: 100%;
             background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
-            color: white;
-            border: 2px solid rgba(255, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Nosifer', cursive;
-            font-size: 1rem;
-            font-weight: 400;
-            cursor: pointer;
-            transition: all 0.4s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
         }
 
-        .copy-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
-            filter: brightness(1.2);
-            border-color: #fff;
-        }
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
 
-        .info-text {
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-            font-style: italic;
-            color: #ffaaaa;
-            font-family: 'Marcellus', serif;
-        }
-
-        .social-tag {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 900;
-            font-family: 'Nosifer', cursive;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
         .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
 
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Notificação */
         #notification {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            background: rgba(40, 0, 0, 0.95);
-            color: var(--accent-color);
-            padding: 40px 60px;
-            border-radius: 10px;
-            font-weight: 400;
-            font-family: 'Nosifer', cursive;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            z-index: 2000;
-            box-shadow: 0 0 70px rgba(255, 0, 0, 0.8);
-            border: 3px solid var(--accent-color);
-            text-align: center;
-            transition: all 0.3s;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
         }
-
         #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
         .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
@@ -389,9 +199,9 @@
 </head>
 <body>
 
-    <!-- Splash Screen -->
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
     <div id="splashScreen" onclick="enterSite()">
-        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif" class="moon-gif" alt="Moon">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
     </div>
 
     <header>
@@ -402,23 +212,15 @@
     <div class="container">
         <div class="section-title">SERENA COLABORADORA</div>
         <div class="metallic-text">GEMINI [MODO PRO]</div>
-        
         <div style="position: relative;">
-
-            
             <div class="prompt-box" id="promptContent">
                 <div class="blood-drip"></div>
                 <div class="fang-bottom-left"></div>
                 <div class="fang-bottom-right"></div>
-
-[COLOQUE O SEU PROMPT AQUI ]
-
-
+                [COLOQUE O SEU PROMPT AQUI ]
             </div>
         </div>
-
         <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
-
         <div style="text-align: center;">
             <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@serena.avuu</a></p>
         </div>
@@ -427,11 +229,9 @@
     <div id="musicPlayerContainer">
         <audio id="bgMusic" loop>
             <source src="musicserena.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
         </audio>
     </div>
 
-    <!-- Notificação de Cópia -->
     <div id="notification">
         <div class="scratch-mark">
             <div class="scratch-line scratch-1"></div>
@@ -444,6 +244,18 @@
     <textarea id="hiddenTextarea"></textarea>
 
     <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
         function createBat() {
             const bat = document.createElement('img');
             bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
@@ -456,16 +268,12 @@
             setTimeout(() => { bat.remove(); }, duration * 1000);
         }
 
-        window.onload = function() {
-            // Inicialização do site
-        };
-
         function enterSite() {
             const splash = document.getElementById('splashScreen');
             const music = document.getElementById('bgMusic');
             splash.style.opacity = '0';
             setTimeout(() => { splash.style.display = 'none'; }, 1000);
-            music.play().catch(e => console.log("Audio play prevented by browser."));
+            music.play().catch(e => console.log("Audio play prevented."));
             setInterval(createBat, 3000);
             for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
         }
@@ -473,31 +281,25 @@
         function copyPrompt() {
             const promptText = document.getElementById('promptContent').innerText;
             const copyBtn = document.getElementById('copyBtn');
-            const originalBtnText = "Copiar Prompt";
             const notification = document.getElementById('notification');
             const textToCopy = promptText + "\n\n@serena.avuu";
             
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); })
-                .catch(err => { fallbackCopy(textToCopy); });
-            } else { fallbackCopy(textToCopy); }
-
-            function fallbackCopy(text) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
                 const textarea = document.getElementById('hiddenTextarea');
-                textarea.value = text;
+                textarea.value = textToCopy;
                 textarea.select();
-                try { document.execCommand('copy'); executarMudancaBotao(); } 
-                catch (err) { alert('Erro ao copiar o prompt.'); }
+                document.execCommand('copy');
+                executarMudancaBotao();
             }
 
             function executarMudancaBotao() {
                 copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @serena.avuu";
-                copyBtn.classList.add('copied');
                 notification.classList.add('show');
                 setTimeout(() => {
                     notification.classList.remove('show');
-                    copyBtn.innerText = originalBtnText;
-                    copyBtn.classList.remove('copied');
+                    copyBtn.innerText = "Copiar Prompt";
                 }, 3000);
             }
         }
