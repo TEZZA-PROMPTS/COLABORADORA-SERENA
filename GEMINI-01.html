@@ -282,7 +282,7 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
         </div>
         <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
         <div style="text-align: center;">
-            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@serena.avuu</a></p>
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
         </div>
     </div>
 
@@ -342,7 +342,7 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
             const promptText = document.getElementById('promptContent').innerText;
             const copyBtn = document.getElementById('copyBtn');
             const notification = document.getElementById('notification');
-            const textToCopy = promptText + "\n\n@serena.avuu";
+            const textToCopy = promptText + "\n\n@xserena_player";
             
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
@@ -355,7 +355,7 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
             }
 
             function executarMudancaBotao() {
-                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @serena.avuu";
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
                 notification.classList.add('show');
                 setTimeout(() => {
                     notification.classList.remove('show');
