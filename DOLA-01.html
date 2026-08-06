@@ -10,7 +10,7 @@
 
     <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?refresh=true">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20DOLA.html?refresh=true">
     <meta property="og:title" content="SERENA • TEZZA PROMPTS">
     <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
     
@@ -128,6 +128,245 @@
             position: relative;
             box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
             scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        .metallic-text {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
+            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
+            background-size: 200% auto;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine-metal 3s linear infinite;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes shine-metal { to { background-position: 200% center; } }
+
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png'); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+
+        .prompt-box::-webkit-scrollbar { width: 6px; }
+        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+
+        .copy-btn {
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
+        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        #notification {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
+        }
+        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
+        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
+        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
+        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
+        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+
+        @keyframes scratchAnim {
+            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
+        }
+
+        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
+    <div id="splashScreen" onclick="enterSite()">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+    </div>
+
+    <header>
+        <div class="logo">SERENA</div>
+        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">SERENA COLABORADORA</div>
+        <div class="metallic-text">DOLA AI</div>
+        <div style="position: relative;">
+            <div class="prompt-box" id="promptContent">
+                <div class="blood-drip"></div>
+                <div class="fang-bottom-left"></div>
+                <div class="fang-bottom-right"></div>
+
+Ultra-realistic cinematic avatar 3D female portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+
+Vertical 9:16 aspect ratio portrait. Tight medium close-up framing from the mid-torso to the top of the head. Straight-on camera angle with the subject perfectly centered in the frame. Clean metallic silver-gray background with soft horizontal light reflections creating a futuristic studio atmosphere. Sharp focus on the face, hair, and upper body with shallow cinematic depth of field.
+
+POSE & BODY POSITIONING
+
+Subject facing the camera directly with a composed, confident posture. Shoulders relaxed and squared naturally toward the lens. Arms positioned slightly forward, with one forearm partially visible in the foreground wearing a black fingerless glove. Upper body remains upright, emphasizing the structured fashion styling and harness details.
+
+HEAD POSITION & GAZE
+
+Head held straight with a very subtle downward tilt. Eyes looking directly into the camera with an intense, captivating gaze. Neutral alignment enhances the symmetrical facial proportions.
+
+FACIAL EXPRESSION
+
+Serious, elegant, and confident expression. Glossy lips softly parted. Calm editorial beauty with a luxurious high-fashion aesthetic.
+
+FACE & IDENTITY
+
+Adult female CGI avatar with a refined symmetrical facial structure, defined jawline, sculpted cheekbones, almond-shaped light brown eyes, long dramatic eyelashes, bold winged eyeliner, naturally full eyebrows, straight slim nose, and full glossy lips. Smooth feminine facial proportions with polished CGI beauty realism while maintaining a clearly fictional digital avatar appearance.
+
+HAIR
+
+Long, straight dark brown hair with a center part. Smooth salon-quality texture with silky reflections and realistic strand definition. Hair falls naturally over the shoulders and back with fluid movement. Two long face-framing front strands hang naturally on each side of the face, maintaining the exact hairstyle and overall identity.
+
+ACCESSORIES & DETAILS
+
+Black spiked choker necklace around the neck. Black leather harness with polished metallic rings, buckles, and straps wrapping around the upper body and waist. Black fingerless leather glove on the visible forearm. Metallic hardware displays realistic reflections and premium material definition. No tattoo descriptions.
+
+OUTFIT
+
+Oversized dark charcoal cropped graphic T-shirt with rolled sleeves. Front graphic features a butterfly with a vertical sword in the center and a subtle dark gothic-style print. Black leather harness layered over the shirt, exposing the midriff. Black leather strappy bottom connected by metallic rings and straps, creating a luxury cyber-goth editorial styling.
+
+BODY & PHYSIQUE
+
+Slim feminine physique with a defined waist, toned abdomen, elegant shoulders, smooth body transitions, and naturally curvy proportions inspired by premium IMVU and The Sims avatar aesthetics. Refined cinematic CGI anatomy with balanced feminine proportions.
+
+SKIN & REALISM
+
+Ultra-detailed Seedream 5.0 skin rendering with realistic pores, subtle skin texture, luminous hydrated finish, and physically accurate subsurface scattering. Soft glossy highlights appear naturally across the forehead, nose bridge, cheeks, collarbones, neck, and exposed abdomen. Preserve the avatar’s original skin tone and identity without altering facial or physical characteristics.
+
+LIGHTING
+
+Soft frontal studio lighting combined with subtle directional highlights. Metallic background reflects horizontal bands of cool light, creating cinematic contrast. Gentle reflections accentuate facial contours, glossy lips, hair, leather materials, and metallic accessories while maintaining realistic Blender Cycles illumination.
+
+ENVIRONMENT
+
+Minimal futuristic studio environment with smooth metallic silver-gray wall panels. Soft horizontal light reflections across the background create a modern editorial atmosphere. Clean, uncluttered setting emphasizes the avatar and luxury fashion styling.
+
+MOOD & AESTHETIC
+
+Dark luxury cyber-goth aesthetic blended with futuristic fashion editorial styling. Powerful virtual influencer presence with premium CGI beauty, polished elegance, high-fashion energy, and sophisticated luxury atmosphere.
+
+STYLE & RENDER QUALITY
+
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity feminine avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of a real photograph.
+
+
+
+                
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
+        <div style="text-align: center;">
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@serena.avuu</a></p>
+        </div>
+    </div>
+
+    <div id="musicPlayerContainer">
+        <audio id="bgMusic" loop>
+            <source src="musicserena.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div id="notification">
+        <div class="scratch-mark">
+            <div class="scratch-line scratch-1"></div>
+            <div class="scratch-line scratch-2"></div>
+            <div class="scratch-line scratch-3"></div>
+        </div>
+        <div id="notificationText">PROMPT COPIADO!</div>
+    </div>
+
+    <textarea id="hiddenTextarea"></textarea>
+
+    <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
+        function createBat() {
+            const bat = document.createElement('img');
+            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
+            bat.className = 'bat';
+            const startY = Math.random() * window.innerHeight;
+            const duration = 5 + Math.random() * 7;
+            bat.style.top = `${startY}px`;
+            bat.style.animationDuration = `${duration}s`;
+            document.body.appendChild(bat);
+            setTimeout(() => { bat.remove(); }, duration * 1000);
+        }
+
+        function enterSite() {
+            const splash = document.getElementById('splashScreen');
+            const music = document.getElementById('bgMusic');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            music.play().catch(e => console.log("Audio play prevented."));
+            setInterval(createBat, 3000);
+            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptContent').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            const textToCopy = promptText + "\n\n@serena.avuu";
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
+                const textarea = document.getElementById('hiddenTextarea');
+                textarea.value = textToCopy;
+                textarea.select();
+                document.execCommand('copy');
+                executarMudancaBotao();
+            }
+
+            function executarMudancaBotao() {
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @serena.avuu";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    copyBtn.innerText = "Copiar Prompt";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>            scrollbar-width: thin;
             scrollbar-color: var(--accent-color) transparent;
         }
 
