@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CONFIGURAÇÃO PARA O LINK LIMPO (OPEN GRAPH) -->
+    <title>SERENA • TEZZA PROMPTS</title>
+    <meta name="description" content="TEZZA PROMPTS OFICIAL">
+
+    <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?refresh=true">
+    <meta property="og:title" content="SERENA • TEZZA PROMPTS">
+    <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
+    
+    <!-- Forçamos o robô a não encontrar imagem aqui -->
+    <meta property="og:image" content="">
+    
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(0, 0, 0, 0.9);
+            --glass-border: rgba(255, 0, 0, 0.6);
+            --accent-color: #ff0000;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --dark-color: #000000;
+            --text-color: #ffffff;
+            --feline-gold: #ff0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+        #splashScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .moon-gif {
+            position: absolute;
+            top: -50px; left: -50px; width: 500px;
+            z-index: 10000;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+            pointer-events: none;
+        }
+
+        .bat {
+            position: fixed;
+            width: 120px;
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
+            animation: fly linear forwards;
+        }
+
+        @keyframes fly {
+            from { transform: translate(-200px, 0) scale(1); }
+            to { transform: translate(calc(100vw + 200px), -100px) scale(0.8); }
+        }
+
+        body {
+            background: url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663610257065/mdCnMnPuRFkDHbXu.png') no-repeat fixed center 20%;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(20,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: -1;
+        }
+
+        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
+        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
+        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+
+        .container {
+            width: 100%; max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
+
+        .prompt-box {
+            background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px 40px 40px 40px;
+            margin-bottom: 30px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 3px solid var(--blood-red);
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        .metallic-text {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
+            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
+            background-size: 200% auto;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine-metal 3s linear infinite;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes shine-metal { to { background-position: 200% center; } }
+
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png'); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+
+        .prompt-box::-webkit-scrollbar { width: 6px; }
+        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+
+        .copy-btn {
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
+        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        #notification {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
+        }
+        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
+        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
+        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
+        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
+        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+
+        @keyframes scratchAnim {
+            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
+        }
+
+        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
+    <div id="splashScreen" onclick="enterSite()">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+    </div>
+
+    <header>
+        <div class="logo">SERENA</div>
+        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">SERENA COLABORADORA</div>
+        <div class="metallic-text">GEMINI [MODO PRO]</div>
+        <div style="position: relative;">
+            <div class="prompt-box" id="promptContent">
+                <div class="blood-drip"></div>
+                <div class="fang-bottom-left"></div>
+                <div class="fang-bottom-right"></div>
+
+        Ultra-realistic cinematic avatar 3D couple portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly fictional digital avatars and not real photographs. Hyper-detailed virtual influencer couple design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+CAMERA & COMPOSITION
+Vertical 9:16 close-up couple selfie captured from inside a modern car, using a slightly elevated front-facing smartphone perspective. Tight portrait framing from approximately the upper torso to the top of the heads, with both avatars positioned closely together inside the vehicle. Female avatar occupies the lower-left foreground while the male avatar occupies the upper-right area of the composition. The female avatar leans her head naturally against the male avatar's upper chest and shoulder while both faces remain clearly visible. Preserve the intimate diagonal composition, close camera distance, natural smartphone perspective, and original spatial relationship between both avatars. Large panoramic glass sunroof occupies the upper background, with visible rain droplets covering the exterior glass and softly blurred urban architecture beyond.
+POSE & BODY POSITIONING
+Female avatar seated in the front passenger area, leaning comfortably toward the male avatar with her head resting against his upper chest and shoulder. Her upper body angles slightly toward the camera while maintaining a relaxed seated posture. Male avatar seated beside her in the driver-side/front-seat area, torso upright and slightly angled toward the camera. Their shoulders and upper bodies remain naturally touching, creating a relaxed intimate couple composition. Preserve the close physical proximity, natural seated posture, head-to-shoulder contact, and casual selfie body language.
+HEAD POSITION & GAZE
+Female avatar tilts her head slightly upward toward the camera while resting against the male avatar, looking directly into the smartphone camera with a soft relaxed gaze. Male avatar tilts his head subtly toward the camera and looks directly into the smartphone lens with a calm confident gaze. Both faces remain oriented toward the camera, with natural head angles and relaxed neck positioning.
+FACIAL EXPRESSION
+Female avatar displays a soft, subtly playful expression with gently closed lips and a relaxed feminine gaze. Male avatar displays a calm, composed expression with relaxed lips and understated confidence. Both expressions feel natural, affectionate, casual, and effortless rather than exaggerated or heavily posed.
+FEMALE AVATAR
+FACE & IDENTITY
+Adult female CGI avatar with facial identity preserved exactly, maintaining the same visible facial proportions, eye shape, eyebrow structure, nose shape, lip volume, cheekbone definition, jawline, facial symmetry, and recognizable feminine characteristics without modification or reinterpretation. Soft oval facial structure, light-colored eyes, naturally defined eyebrows, delicate nose, full glossy lips, softly sculpted cheeks, and refined feminine beauty proportions. Preserve the natural facial arrangement and relaxed expression while rendering her as a clearly fictional digital CGI avatar.
+HAIR
+Medium-length blonde hair with soft natural waves and loose layered movement, falling around the shoulders and sides of the face. Hair has light blonde tonal variation, smooth silky texture, subtle strand definition, natural volume, and soft movement around the neck and shoulders. Preserve the casual loose hairstyle with naturally displaced strands around the cap and face.
+ACCESSORIES & DETAILS
+White baseball cap with bold dark lettering and subtle graphic details positioned naturally on the head. Small delicate earrings visible beneath the hair. A wide black crossbody-style strap with metallic hardware crosses diagonally over the upper torso. Preserve the visible cap structure, lettering placement, strap construction, metallic details, and casual sporty accessories without introducing additional elements.
+OUTFIT
+Sporty casual color-blocked jacket featuring predominantly white fabric with dark navy and black sections, subtle green trim around the neckline, and structured athletic panels. The jacket has a relaxed fit, realistic textile texture, natural folds, and visible seams. Preserve the layered sporty streetwear appearance and original color-blocked construction.
+BODY & PHYSIQUE
+Feminine slim physique with natural proportions, softly defined shoulders, delicate neck, balanced upper-body proportions, and relaxed seated posture. Maintain natural feminine anatomy and polished IMVU/Sims-inspired CGI proportions without exaggeration. Preserve the body positioning created by the seated selfie composition.
+MALE AVATAR
+FACE & IDENTITY
+Adult male CGI avatar with facial identity preserved exactly, maintaining the same visible jawline, cheekbone structure, eyebrow shape, eye spacing, nose proportions, lip shape, facial hair pattern, facial symmetry, and recognizable masculine characteristics without alteration or reinterpretation. Strong but natural masculine facial structure with light stubble, defined jawline, straight nose, moderately thick eyebrows, natural lips, and relaxed confident facial proportions. Preserve the understated expression and clearly fictional CGI avatar appearance.
+HAIR
+Short dark brown hair with naturally textured volume, styled upward and slightly backward from the forehead. Hair features defined individual strands, subtle natural texture, controlled volume, soft highlights, and clean masculine grooming. Preserve the compact hairstyle and naturally tousled texture visible beneath the cap area.
+ACCESSORIES & DETAILS
+White baseball cap worn forward with bold dark lettering and graphic detailing across the front and brim. Minimal visible accessories. Preserve the cap's shape, lettering, stitching, and casual sporty styling without adding unnecessary jewelry or objects.
+OUTFIT
+Sporty black, white, and cream color-blocked collared shirt or jacket with a structured white collar and predominantly black upper torso. Garment features contrasting cream-white panels, subtle seams, realistic fabric texture, natural folds, and a relaxed contemporary athletic fit. Preserve the clean monochromatic sportswear aesthetic and layered construction.
+BODY & PHYSIQUE
+Lean athletic masculine physique with broad shoulders, naturally defined upper torso, strong neck, balanced proportions, and relaxed seated posture. Maintain realistic masculine anatomy with polished Sims/IMVU-inspired CGI proportions while preserving the natural positioning inside the vehicle.
+SKIN & REALISM
+Ultra-detailed Seedream 5.0 skin rendering with realistic pores, fine skin texture, subtle micro-detail, hydrated natural highlights, physically accurate subsurface scattering, and polished Blender-style material realism. Preserve the distinct skin tones of both avatars separately with natural undertones and realistic facial shading. Female skin remains softly luminous with natural warm-neutral coloration. Male skin remains naturally warm with subtle tonal variation and realistic facial hair texture. Avoid excessive smoothing while maintaining clearly fictional CGI avatar aesthetics.
+LIGHTING
+Soft natural daylight entering through the panoramic sunroof and vehicle windows, combined with diffused overcast outdoor illumination. Cool muted daylight creates gentle highlights across the faces, hair, caps, and clothing while maintaining soft natural shadows. Rain-covered glass produces subtle diffused reflections and atmospheric light scattering across the interior. Preserve the calm cloudy-day illumination and authentic smartphone selfie lighting.
+ENVIRONMENT
+Modern luxury car interior with dark upholstered seats, panoramic glass sunroof, visible roof frame, clean interior trim, and subtle premium automotive details. Numerous natural rain droplets are visible across the exterior surface of the panoramic roof and windows. Overcast gray-blue sky and softly blurred urban buildings are visible through the wet glass. The environment remains secondary to the couple while preserving the intimate enclosed car atmosphere.
+MOOD & AESTHETIC
+Intimate rainy-day couple selfie aesthetic mixed with modern luxury lifestyle, sporty streetwear, casual influencer culture, and polished virtual-avatar beauty rendering. Soft, cozy, youthful, stylish, affectionate, understated, and effortlessly fashionable atmosphere. The image should feel like an authentic spontaneous couple moment inside a luxury car on a rainy day while maintaining premium cinematic CGI polish.
+STYLE & RENDER QUALITY
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity couple avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of real photographs.
+                
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
+        <div style="text-align: center;">
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
+        </div>
+    </div>
+
+    <div id="musicPlayerContainer">
+        <audio id="bgMusic" loop>
+            <source src="musicserena.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div id="notification">
+        <div class="scratch-mark">
+            <div class="scratch-line scratch-1"></div>
+            <div class="scratch-line scratch-2"></div>
+            <div class="scratch-line scratch-3"></div>
+        </div>
+        <div id="notificationText">PROMPT COPIADO!</div>
+    </div>
+
+    <textarea id="hiddenTextarea"></textarea>
+
+    <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
+        function createBat() {
+            const bat = document.createElement('img');
+            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
+            bat.className = 'bat';
+            const startY = Math.random() * window.innerHeight;
+            const duration = 5 + Math.random() * 7;
+            bat.style.top = `${startY}px`;
+            bat.style.animationDuration = `${duration}s`;
+            document.body.appendChild(bat);
+            setTimeout(() => { bat.remove(); }, duration * 1000);
+        }
+
+        function enterSite() {
+            const splash = document.getElementById('splashScreen');
+            const music = document.getElementById('bgMusic');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            music.play().catch(e => console.log("Audio play prevented."));
+            setInterval(createBat, 3000);
+            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptContent').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            const textToCopy = promptText + "\n\n@xserena_player";
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
+                const textarea = document.getElementById('hiddenTextarea');
+                textarea.value = textToCopy;
+                textarea.select();
+                document.execCommand('copy');
+                executarMudancaBotao();
+            }
+
+            function executarMudancaBotao() {
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    copyBtn.innerText = "Copiar Prompt";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
