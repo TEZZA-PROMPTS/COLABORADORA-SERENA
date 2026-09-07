@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CONFIGURAÇÃO PARA O LINK LIMPO (OPEN GRAPH) -->
+    <title>SERENA • TEZZA PROMPTS</title>
+    <meta name="description" content="TEZZA PROMPTS OFICIAL">
+
+    <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?refresh=true">
+    <meta property="og:title" content="SERENA • TEZZA PROMPTS">
+    <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
+    
+    <!-- Forçamos o robô a não encontrar imagem aqui -->
+    <meta property="og:image" content="">
+    
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(0, 0, 0, 0.9);
+            --glass-border: rgba(255, 0, 0, 0.6);
+            --accent-color: #ff0000;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --dark-color: #000000;
+            --text-color: #ffffff;
+            --feline-gold: #ff0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+        #splashScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .moon-gif {
+            position: absolute;
+            top: -50px; left: -50px; width: 500px;
+            z-index: 10000;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+            pointer-events: none;
+        }
+
+        .bat {
+            position: fixed;
+            width: 120px;
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
+            animation: fly linear forwards;
+        }
+
+        @keyframes fly {
+            from { transform: translate(-200px, 0) scale(1); }
+            to { transform: translate(calc(100vw + 200px), -100px) scale(0.8); }
+        }
+
+        body {
+            background: url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663610257065/mdCnMnPuRFkDHbXu.png') no-repeat fixed center 20%;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(20,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: -1;
+        }
+
+        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
+        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
+        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+
+        .container {
+            width: 100%; max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
+
+        .prompt-box {
+            background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px 40px 40px 40px;
+            margin-bottom: 30px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 3px solid var(--blood-red);
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        .metallic-text {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
+            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
+            background-size: 200% auto;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine-metal 3s linear infinite;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes shine-metal { to { background-position: 200% center; } }
+
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png'); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+
+        .prompt-box::-webkit-scrollbar { width: 6px; }
+        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+
+        .copy-btn {
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
+        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        #notification {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
+        }
+        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
+        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
+        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
+        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
+        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+
+        @keyframes scratchAnim {
+            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
+        }
+
+        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
+    <div id="splashScreen" onclick="enterSite()">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+    </div>
+
+    <header>
+        <div class="logo">SERENA</div>
+        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">SERENA COLABORADORA</div>
+        <div class="metallic-text">GEMINI [MODO PRO]</div>
+        <div style="position: relative;">
+            <div class="prompt-box" id="promptContent">
+                <div class="blood-drip"></div>
+                <div class="fang-bottom-left"></div>
+                <div class="fang-bottom-right"></div>
+
+        IMPORTANT IDENTITY PRIORITY
+
+Preserve the male subject’s exact identity with maximum fidelity. Maintain the same facial structure, proportions, distinctive facial characteristics, natural asymmetries, body proportions and overall recognizable appearance. Do not alter, beautify, idealize, masculinize, feminize, rejuvenate or age the subject. The identity must remain the highest priority throughout the entire generation.
+
+CAMERA & COMPOSITION
+
+Vertical portrait composition with a close medium framing, reproducing the same photographic perspective and spatial organization. The camera is positioned slightly above the subject’s upper-body level and to his front-left side, capturing a strong three-quarter side profile. The frame includes the complete head, neck, shoulders, upper torso and both hands, while maintaining the ocean, horizon and distant islands in the background. The subject occupies the central and lower portion of the composition, with substantial open sky occupying the upper portion. Natural smartphone photography perspective, realistic depth, accurate proportions and no exaggerated wide-angle distortion.
+
+POSE & BODY POSITIONING
+
+The male subject is standing in shallow seawater with his upper body exposed above the water. His torso is naturally rotated slightly sideways relative to the camera. His shoulders are relaxed and his posture is casual and spontaneous. One arm is raised toward the front of his torso, with the hand holding a small lighter close to the other hand. The second hand is positioned near his mouth while interacting with the thin object between his lips. Both arms must connect naturally to the shoulders with anatomically correct proportions. Exactly two arms, two hands and five fingers per hand, with no duplicated, fused, missing or additional limbs or fingers.
+
+HEAD POSITION & GAZE
+
+The head is lowered and slightly rotated toward the side, creating a pronounced three-quarter profile. The chin points downward toward the hands. The eyes are directed downward toward the lighter and the object near the mouth rather than toward the camera. Preserve the exact head inclination, neck position, facial orientation and gaze direction.
+
+FACIAL EXPRESSION
+
+Calm, concentrated and naturally introspective expression. Eyelids are lowered as the subject looks downward. The lips are slightly parted around the thin object positioned between them. Facial muscles remain relaxed with no exaggerated smile, posing or dramatic expression. Preserve the candid, spontaneous feeling of the original moment.
+
+FACE & IDENTITY
+
+Preserve the exact facial anatomy and recognizable identity. Defined masculine facial structure, naturally prominent nose, structured jawline, defined cheekbones, naturally shaped lips and short facial hair along the upper lip, jaw and chin. Preserve the exact relative proportions between forehead, eyebrows, eyes, nose, cheeks, mouth, jaw and chin. Maintain all natural facial details and subtle asymmetries without smoothing away individual characteristics.
+
+HAIR
+
+Short, dense, naturally textured hairstyle with visible individual strands and natural texture. The sides are closely trimmed while the upper portion remains fuller, creating the same compact hairstyle structure and silhouette. Preserve the exact hairstyle, length relationships, texture and shape without changing its construction.
+
+ACCESSORIES & DETAILS
+
+A thin delicate necklace is visible around the neck with a small pendant resting against the upper chest. Multiple bracelets are visible around the wrist, including thin cord and beaded elements. One hand holds a small lighter positioned close to the other hand. A thin wooden-looking object extends from the hand toward the subject’s mouth. Preserve the relative size, placement, orientation and interaction of all visible accessories and objects.
+
+OUTFIT
+
+The subject is shirtless, with the entire visible upper torso, chest, shoulders and arms exposed. No shirt, jacket, tank top or other clothing covering the upper body. Maintain the exact casual beach setting and unobstructed visibility of the torso.
+
+BODY & PHYSIQUE
+
+Naturally athletic masculine physique with broad shoulders, developed upper arms, defined chest, strong neck and proportionate torso. Realistic muscular development without exaggerated bodybuilding proportions. Preserve the subject’s natural body structure, shoulder width, arm proportions, chest anatomy and overall physique exactly as presented.
+
+SKIN & REALISM
+
+Highly realistic natural skin texture with visible pores, subtle imperfections, fine facial hair, realistic tonal variation and authentic three-dimensional surface detail. The skin appears naturally exposed to the outdoor environment and water, with subtle moisture and realistic highlights. Maintain physically accurate transitions around the face, neck, shoulders, arms and chest. Avoid plastic, wax-like, excessively smooth or artificial skin.
+
+LIGHTING
+
+Bright natural tropical daylight illuminating the subject from above and slightly from the front. Realistic sunlight creates natural highlights across the face, shoulders, chest and arms, with subtle shadows defining the facial structure and body. Reflected light from the surrounding seawater produces natural illumination on the lower portions of the body. Maintain physically plausible lighting, realistic highlights and natural dynamic range.
+
+ENVIRONMENT
+
+Clear tropical ocean with shallow, transparent seawater surrounding the subject. The water contains natural turquoise and blue tones, visible ripples and realistic sunlight reflections. A distant mountainous coastline and small islands are visible along the horizon. Above the horizon is a large clear sky with a few small soft clouds. Preserve the spatial relationship between the subject, water, horizon, islands and sky.
+
+MOOD & AESTHETIC
+
+Authentic spontaneous tropical vacation moment, relaxed masculine energy, natural confidence and effortless beach atmosphere. The image should feel like an unposed personal photograph captured naturally in the ocean, rather than a studio portrait or deliberately staged photoshoot.
+
+STYLE & RENDERING
+
+Ultra-realistic high-end digital photography aesthetic with physically accurate materials, realistic human anatomy, natural skin rendering, detailed facial features, realistic hair texture, authentic water surfaces and environmental reflections. Photorealistic depth, natural optical behavior, subtle depth of field, high micro-detail and realistic smartphone-camera characteristics. Prioritize anatomical accuracy, identity preservation, realistic hands, realistic facial structure and faithful reproduction of the complete composition.
+                
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
+        <div style="text-align: center;">
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
+        </div>
+    </div>
+
+    <div id="musicPlayerContainer">
+        <audio id="bgMusic" loop>
+            <source src="musicserena.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div id="notification">
+        <div class="scratch-mark">
+            <div class="scratch-line scratch-1"></div>
+            <div class="scratch-line scratch-2"></div>
+            <div class="scratch-line scratch-3"></div>
+        </div>
+        <div id="notificationText">PROMPT COPIADO!</div>
+    </div>
+
+    <textarea id="hiddenTextarea"></textarea>
+
+    <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
+        function createBat() {
+            const bat = document.createElement('img');
+            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
+            bat.className = 'bat';
+            const startY = Math.random() * window.innerHeight;
+            const duration = 5 + Math.random() * 7;
+            bat.style.top = `${startY}px`;
+            bat.style.animationDuration = `${duration}s`;
+            document.body.appendChild(bat);
+            setTimeout(() => { bat.remove(); }, duration * 1000);
+        }
+
+        function enterSite() {
+            const splash = document.getElementById('splashScreen');
+            const music = document.getElementById('bgMusic');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            music.play().catch(e => console.log("Audio play prevented."));
+            setInterval(createBat, 3000);
+            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptContent').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            const textToCopy = promptText + "\n\n@xserena_player";
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
+                const textarea = document.getElementById('hiddenTextarea');
+                textarea.value = textToCopy;
+                textarea.select();
+                document.execCommand('copy');
+                executarMudancaBotao();
+            }
+
+            function executarMudancaBotao() {
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    copyBtn.innerText = "Copiar Prompt";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
