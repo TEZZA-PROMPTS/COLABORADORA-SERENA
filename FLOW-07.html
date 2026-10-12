@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CONFIGURAÇÃO PARA O LINK LIMPO (OPEN GRAPH) -->
+    <title>SERENA • TEZZA PROMPTS</title>
+    <meta name="description" content="TEZZA PROMPTS OFICIAL">
+
+    <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20FLOW.html?refresh=true">
+    <meta property="og:title" content="SERENA • TEZZA PROMPTS">
+    <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
+    
+    <!-- Forçamos o robô a não encontrar imagem aqui -->
+    <meta property="og:image" content="">
+    
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(0, 0, 0, 0.68);
+            --glass-border: rgba(255, 0, 0, 0.6);
+            --accent-color: #ff0000;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --dark-color: #000000;
+            --text-color: #ffffff;
+            --feline-gold: #ff0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+        #splashScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .moon-gif {
+            position: absolute;
+            top: -50px; left: -50px; width: 500px;
+            z-index: 10000;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+            pointer-events: none;
+        }
+
+        .bat {
+            position: fixed;
+            width: 120px;
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
+            animation: fly linear forwards;
+        }
+
+        @keyframes fly {
+            from { transform: translate(-200px, 0) scale(1); }
+            to { transform: translate(calc(100vw + 200px), -100px) scale(0.8); }
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 35%, #8b0000 0%, #4b0000 38%, #190000 78%, #050000 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(120,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body > * { position: relative; z-index: 1; }
+
+        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
+        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
+        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+
+        .container {
+            width: 100%; max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
+
+        .prompt-box {
+            background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px 40px 40px 40px;
+            margin-bottom: 30px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 3px solid var(--blood-red);
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        .metallic-text {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
+            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
+            background-size: 200% auto;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine-metal 3s linear infinite;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes shine-metal { to { background-position: 200% center; } }
+
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: none;
+            background: linear-gradient(to bottom, #ff0000 0%, #8b0000 45%, transparent 100%); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+
+        .prompt-box::-webkit-scrollbar { width: 6px; }
+        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+
+        .copy-btn {
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
+        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        #notification {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
+        }
+        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
+        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
+        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
+        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
+        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+
+        @keyframes scratchAnim {
+            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
+        }
+
+        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
+    <div id="splashScreen" onclick="enterSite()">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+    </div>
+
+    <header>
+        <div class="logo">SERENA</div>
+        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">SERENA COLABORADORA</div>
+        <div class="metallic-text">FLOW </div>
+        <div style="position: relative;">
+            <div class="prompt-box" id="promptContent">
+                <div class="blood-drip"></div>
+                <div class="fang-bottom-left"></div>
+                <div class="fang-bottom-right"></div>
+
+        Ultra-realistic cinematic avatar 3D female portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+
+Vertical 9:16 aspect ratio, sophisticated luxury home-office lifestyle composition captured from a slightly elevated diagonal camera perspective. Medium-wide seated portrait showing an adult female CGI avatar working at a minimalist white desk in a bright contemporary interior. The camera is positioned above and slightly to the left of the subject, looking downward toward her face, upper body, hands, computer keyboard, and crossed legs. The female avatar occupies the central and right portions of the frame, while a large silver desktop computer dominates the lower-left foreground. The white desk extends diagonally across the composition, creating strong geometric leading lines. A takeaway coffee cup appears near the upper-left edge of the desk, while a brown checkered designer-style notebook and a large fashion publication occupy the lower-right foreground. Two windows frame the upper architectural background. Preserve the elevated viewpoint, natural perspective, precise object placement, seated composition, and balanced relationship between the subject, desk, computer, and surrounding interior.
+
+POSE & BODY POSITIONING
+
+Female avatar seated on a contemporary office chair with a metallic frame, transparent curved armrests, and a light-colored seat. Her torso is upright with a subtle forward inclination toward the computer, maintaining a composed and focused working posture. Shoulders naturally relaxed, with both arms extending forward and downward toward a compact white keyboard positioned directly in front of her. Elbows gently bent, forearms angled toward the desk, and wrists resting naturally above the keyboard. Both hands positioned over the keys in an authentic typing gesture, with fingers slightly curved and naturally separated. Her right hand appears on the left side of the composition, while her left hand appears on the right side, closer to the foreground. Legs positioned in a relaxed seated arrangement, with one leg bent and drawn across the chair seat, creating a casual asymmetrical silhouette. Light blue denim jeans follow the natural folds of the bent legs. Preserve the exact seated body orientation, shoulder alignment, hand placement, finger positioning, arm angles, and natural relationship between the body and workstation.
+
+HEAD POSITION & GAZE
+
+Head gently inclined downward toward the computer keyboard and workstation, with the chin slightly lowered and the face turned subtly toward the left side of the composition. Eyes directed downward in a concentrated gaze, without looking toward the camera. The elevated camera perspective reveals the upper forehead, softly defined eyebrows, eyelids, nose bridge, and delicate facial contours. Hair follows the natural inclination of the head, remaining smoothly arranged around the crown and flowing backward over the shoulders. Maintain the downward head angle, precise gaze direction, natural neck alignment, and composed working posture.
+
+FACIAL EXPRESSION
+
+Calm, serious, and focused facial expression conveying quiet concentration while working. Lips gently closed and relaxed, with a subtle natural pout. Eyebrows softly defined and resting in a neutral position. Eyes slightly lowered beneath long, carefully defined eyelashes. Cheeks relaxed, jaw naturally positioned, and facial muscles free from exaggerated tension. The expression communicates refined professionalism, feminine composure, and understated confidence. No smile, exaggerated emotion, or direct engagement with the camera. Preserve the subtle concentration and naturally composed facial expression.
+
+FACE & IDENTITY
+
+Adult female CGI avatar with refined feminine facial proportions, softly sculpted oval facial structure, a gently tapered jawline, delicate chin, defined cheekbones, and naturally balanced facial contours. Smooth forehead, softly arched and carefully groomed eyebrows, almond-shaped eyes with defined upper lashes, a slender straight nose bridge, softly rounded nose tip, and naturally full lips with delicate contour definition. The face features elegant symmetry while maintaining believable individual facial characteristics and subtle anatomical variations. Makeup consists of a polished neutral beauty look with softly blended nude eyeshadow, defined eyelashes, natural-looking complexion coverage, restrained cheek contouring, subtle warm blush, and muted nude-pink lips with a soft satin finish. Preserve the facial structure, proportions, expression, and individual visual characteristics without introducing exaggerated facial modifications. Premium stylized CGI beauty rendering with refined IMVU-inspired facial aesthetics and realistic three-dimensional anatomical depth.
+
+HAIR
+
+Long dark brown hair with a luxurious professional salon-finished appearance, extending well below the shoulders and flowing naturally along the back and upper chest. Rich, deep dark brown coloration maintained consistently throughout the roots, mid-lengths, and ends, with subtle dimensional reflections created by natural daylight. The hairstyle features a clean, slightly off-center part, smooth and controlled roots, softly lifted crown volume, and carefully arranged front sections sweeping naturally away from the forehead. Hair follows the contours of the head with a sleek, polished upper structure before transitioning into long, softly flowing lengths with gentle loose waves. The waves are subtle, elongated, and naturally distributed through the mid-lengths and ends, creating a refined salon blowout effect rather than tightly defined curls. One side is smoothly tucked behind the ear, revealing the gold earring, while the remaining lengths fall backward over the shoulders with soft movement and elegant volume. Silky strand separation, smooth cuticle reflections, delicate layered movement, subtle natural body, and professionally finished ends. Maintain the hairstyle's natural length, smooth crown, side positioning, and flowing silhouette while ensuring the hair remains exclusively dark brown, long, slightly wavy, and professionally styled with a luxurious salon blowout finish.
+
+ACCESSORIES & DETAILS
+
+Large polished gold sculptural earrings with a rounded, slightly irregular geometric shape, positioned closely against the earlobes. Delicate layered gold necklaces resting around the base of the neck, including a thin curved chain with a small horizontal decorative centerpiece. Multiple gold rings distributed across the fingers of both hands, featuring polished metallic finishes and subtle variations in band thickness. Stacked slim gold bracelets around the wrist on the left side of the composition. A prominent gold wristwatch with a round face and textured metallic bracelet worn on the opposite wrist. Fingernails carefully manicured with a natural light nude-pink finish and softly elongated shape. Jewelry reflects the bright surrounding daylight with realistic metallic highlights, subtle surface reflections, and accurate material definition. Accessories remain elegant, minimal, and coordinated with the cream-colored outfit and sophisticated office setting.
+
+OUTFIT
+
+Elegant fitted ivory-cream tailored blouse featuring a structured blazer-inspired silhouette with a deep V-shaped neckline and no traditional shirt collar. The garment has softly structured shoulders, long sleeves with generous volume through the upper arms, and wide tailored cuffs extending toward the wrists. The neckline forms clean diagonal edges that meet at the fitted center-front closure. A vertical row of small fabric-covered buttons runs down the front of the blouse, following the natural contours of the torso. The waist is gently cinched, creating a refined feminine silhouette with subtle tailoring and realistic fabric tension. Smooth premium suiting fabric with a soft matte finish, gentle folds around the elbows, natural compression at the waist, and delicate shadow transitions along the sleeves. The blouse is paired with relaxed light blue denim jeans featuring a soft washed finish, natural denim grain, visible seams, and realistic folds around the hips, thighs, and bent knees. The combination creates a polished smart-casual aesthetic blending structured luxury tailoring with relaxed contemporary denim.
+
+BODY & PHYSIQUE
+
+Adult female CGI avatar with balanced feminine proportions, a softly defined waist, proportionate bust, naturally contoured hips, slender wrists, and elegant arms. Upper body anatomy follows the fitted structure of the tailored blouse, with subtle natural shaping through the chest and waist. Shoulders appear proportionate and gently structured beneath the garment. Arms maintain realistic length and anatomical alignment, with naturally shaped elbows, wrists, palms, and fingers. Seated posture creates believable compression through the hips and thighs, while the crossed-leg arrangement introduces natural asymmetry to the lower body. Maintain realistic head-to-body proportions, natural hand dimensions, accurate finger anatomy, and believable transitions between the shoulders, torso, arms, and legs. Refined feminine IMVU-inspired avatar proportions without excessive exaggeration or artificial anatomical distortion.
+
+SKIN & REALISM
+
+Smooth light skin tone with a softly warm neutral undertone, illuminated by abundant natural daylight entering through the surrounding windows. Ultra-detailed Seedream 5.0 skin rendering featuring refined pores, subtle surface texture, delicate natural tonal variations, and physically accurate subsurface scattering. Gentle highlights across the forehead, nose bridge, cheekbones, neck, upper chest, hands, and fingers. Soft natural shadows define the facial contours, neckline, wrists, and finger joints. Realistic skin translucency around the ears and fingertips, with balanced warmth and restrained luminosity. The visible upper chest and hands display consistent skin coloration and believable material response to daylight. Maintain a polished beauty finish without excessive airbrushing, artificial plastic smoothness, exaggerated shine, or unrealistic skin texture. Premium Blender Cycles skin shading with refined CGI beauty realism.
+
+LIGHTING
+
+Bright natural daylight entering through two large windows positioned along the upper-left and upper-right sides of the room. Soft directional sunlight creates clean illumination across the female avatar, cream-colored blouse, white desk, and surrounding architectural surfaces. The pale walls reflect daylight naturally, producing gentle ambient fill lighting and reducing harsh facial shadows. Subtle directional highlights illuminate the hair, forehead, cheeks, gold jewelry, shoulders, and hands. Soft shadows appear beneath the arms, around the keyboard, along the folds of the blouse, and across the chair and floor. The white desk surface reflects diffused daylight upward, contributing to balanced illumination of the hands and lower face. Preserve the bright airy atmosphere, natural window-light direction, realistic shadow placement, and softly contrasted editorial lighting without introducing artificial flash effects or dramatic studio illumination.
+
+ENVIRONMENT
+
+Minimalist contemporary home-office interior featuring clean white walls, pale architectural finishes, and light natural wood flooring. The room is positioned between two tall white-framed windows, one partially visible along the upper-left edge and another along the upper-right side of the composition. Natural daylight enters through both windows, creating an open, bright, and uncluttered atmosphere.
+
+A large rectangular white desk occupies most of the lower foreground, extending diagonally from the left side toward the lower-right corner. A silver all-in-one desktop computer with a large thin display is positioned prominently on the left side of the desk, its metallic back facing the camera. A dark minimalist logo appears on the rear surface of the computer. The display is supported by a curved silver stand with a wide rectangular base. A compact white wireless keyboard is placed directly in front of the computer, beneath the avatar's hands.
+
+A small disposable takeaway coffee cup with a white plastic lid and a brown cardboard sleeve sits near the upper-left corner of the desk. On the lower-right side, a rectangular brown notebook or planner with a dark brown checkerboard pattern rests diagonally on top of a large white fashion and interior-design publication. The publication features oversized black serif typography and monochromatic architectural imagery partially visible beneath the notebook.
+
+The female avatar sits on a contemporary office chair with a polished metallic frame, curved transparent armrests, a light-colored seat, and small dark caster wheels. The chair is positioned close to the desk, with its structure partially visible around the avatar's arms and legs. The background remains intentionally minimal, consisting primarily of white walls, window frames, and subtle floor details. Preserve the clean architectural geometry, exact workstation arrangement, visible objects, material textures, and uncluttered luxury-office atmosphere.
+
+MOOD & AESTHETIC
+
+Sophisticated feminine entrepreneur lifestyle aesthetic combining quiet luxury, contemporary professional elegance, and minimalist home-office design. Refined business-casual fashion with cream tailoring, light denim, polished gold jewelry, and luxurious dark brown salon-styled hair. Calm productivity atmosphere featuring natural daylight, neutral architectural tones, an organized workstation, and understated designer-inspired accessories. Elegant virtual-influencer lifestyle photography with a subtle old-money aesthetic, modern executive femininity, and polished everyday professionalism. Bright, clean, composed, aspirational, and effortlessly sophisticated visual storytelling. Premium Pinterest-inspired luxury workspace aesthetics blended with cinematic CGI beauty realism and high-end digital-avatar rendering.
+
+STYLE & RENDER QUALITY
+
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity female avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of a real photograph.
+                
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
+        <div style="text-align: center;">
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
+        </div>
+    </div>
+
+    <div id="musicPlayerContainer">
+        <audio id="bgMusic" loop>
+            <source src="musicserena.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div id="notification">
+        <div class="scratch-mark">
+            <div class="scratch-line scratch-1"></div>
+            <div class="scratch-line scratch-2"></div>
+            <div class="scratch-line scratch-3"></div>
+        </div>
+        <div id="notificationText">PROMPT COPIADO!</div>
+    </div>
+
+    <textarea id="hiddenTextarea"></textarea>
+
+    <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
+        function createBat() {
+            const bat = document.createElement('img');
+            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
+            bat.className = 'bat';
+            const startY = Math.random() * window.innerHeight;
+            const duration = 5 + Math.random() * 7;
+            bat.style.top = `${startY}px`;
+            bat.style.animationDuration = `${duration}s`;
+            document.body.appendChild(bat);
+            setTimeout(() => { bat.remove(); }, duration * 1000);
+        }
+
+        function enterSite() {
+            const splash = document.getElementById('splashScreen');
+            const music = document.getElementById('bgMusic');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            music.play().catch(e => console.log("Audio play prevented."));
+            setInterval(createBat, 3000);
+            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptContent').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            const textToCopy = promptText + "\n\n@xserena_player";
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
+                const textarea = document.getElementById('hiddenTextarea');
+                textarea.value = textToCopy;
+                textarea.select();
+                document.execCommand('copy');
+                executarMudancaBotao();
+            }
+
+            function executarMudancaBotao() {
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    copyBtn.innerText = "Copiar Prompt";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
