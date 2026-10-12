@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
     <style>
         :root {
-            --glass-bg: rgba(0, 0, 0, 0.9);
+            --glass-bg: rgba(0, 0, 0, 0.68);
             --glass-border: rgba(255, 0, 0, 0.6);
             --accent-color: #ff0000;
             --blood-red: #8b0000;
@@ -47,7 +47,7 @@
             z-index: 9999;
             transition: opacity 1s ease-out;
             cursor: pointer;
-            overflow: hidden;
+            overDOLA: hidden;
         }
 
         .moon-gif {
@@ -73,8 +73,8 @@
         }
 
         body {
-            background: url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663610257065/mdCnMnPuRFkDHbXu.png') no-repeat fixed center 20%;
-            background-size: cover;
+            background: radial-gradient(circle at 50% 35%, #8b0000 0%, #4b0000 38%, #190000 78%, #050000 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -82,16 +82,19 @@
             justify-content: center;
             padding: 20px;
             color: var(--text-color);
-            overflow-x: hidden;
+            overDOLA-x: hidden;
         }
 
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(20,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
-            z-index: -1;
+            background: radial-gradient(circle, rgba(120,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%);
+            z-index: 0;
+            pointer-events: none;
         }
+
+        body > * { position: relative; z-index: 1; }
 
         header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
         .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
@@ -123,7 +126,7 @@
             padding: 50px 40px 40px 40px;
             margin-bottom: 30px;
             max-height: 450px;
-            overflow-y: auto;
+            overDOLA-y: auto;
             border: 3px solid var(--blood-red);
             position: relative;
             box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
@@ -144,7 +147,8 @@
 
         @keyframes shine-metal { to { background-position: 200% center; } }
 
-        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: url('https://www.transparentpng.com/download/blood/dripping-blood-png-free-download-23.png'); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: none;
+            background: linear-gradient(to bottom, #ff0000 0%, #8b0000 45%, transparent 100%); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
 
         .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
         .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
@@ -211,23 +215,20 @@
 
     <div class="container">
         <div class="section-title">SERENA COLABORADORA</div>
-        <div class="metallic-text">DOLA AI</div>
+        <div class="metallic-text">DOLA </div>
         <div style="position: relative;">
             <div class="prompt-box" id="promptContent">
                 <div class="blood-drip"></div>
                 <div class="fang-bottom-left"></div>
                 <div class="fang-bottom-right"></div>
 
-                
-                [COLOQUE O SEU PROMPT AQUI ]
-
-
+        [COLOQUE AQUI O SEU PROMPT]
                 
             </div>
         </div>
         <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
         <div style="text-align: center;">
-            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@serena.avuu</a></p>
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
         </div>
     </div>
 
@@ -287,7 +288,7 @@
             const promptText = document.getElementById('promptContent').innerText;
             const copyBtn = document.getElementById('copyBtn');
             const notification = document.getElementById('notification');
-            const textToCopy = promptText + "\n\n@serena.avuu";
+            const textToCopy = promptText + "\n\n@xserena_player";
             
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
@@ -300,7 +301,7 @@
             }
 
             function executarMudancaBotao() {
-                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @serena.avuu";
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
                 notification.classList.add('show');
                 setTimeout(() => {
                     notification.classList.remove('show');
