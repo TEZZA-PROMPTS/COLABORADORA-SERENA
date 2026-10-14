@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CONFIGURAÇÃO PARA O LINK LIMPO (OPEN GRAPH) -->
+    <title>SERENA • TEZZA PROMPTS</title>
+    <meta name="description" content="TEZZA PROMPTS OFICIAL">
+
+    <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20FLOW.html?refresh=true">
+    <meta property="og:title" content="SERENA • TEZZA PROMPTS">
+    <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
+    
+    <!-- Forçamos o robô a não encontrar imagem aqui -->
+    <meta property="og:image" content="">
+    
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(0, 0, 0, 0.68);
+            --glass-border: rgba(255, 0, 0, 0.6);
+            --accent-color: #ff0000;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --dark-color: #000000;
+            --text-color: #ffffff;
+            --feline-gold: #ff0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+        #splashScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .moon-gif {
+            position: absolute;
+            top: -50px; left: -50px; width: 500px;
+            z-index: 10000;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+            pointer-events: none;
+        }
+
+        .bat {
+            position: fixed;
+            width: 120px;
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
+            animation: fly linear forwards;
+        }
+
+        @keyframes fly {
+            from { transform: translate(-200px, 0) scale(1); }
+            to { transform: translate(calc(100vw + 200px), -100px) scale(0.8); }
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 35%, #8b0000 0%, #4b0000 38%, #190000 78%, #050000 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(120,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body > * { position: relative; z-index: 1; }
+
+        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
+        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
+        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+
+        .container {
+            width: 100%; max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
+
+        .prompt-box {
+            background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px 40px 40px 40px;
+            margin-bottom: 30px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 3px solid var(--blood-red);
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        .metallic-text {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
+            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
+            background-size: 200% auto;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine-metal 3s linear infinite;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes shine-metal { to { background-position: 200% center; } }
+
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: none;
+            background: linear-gradient(to bottom, #ff0000 0%, #8b0000 45%, transparent 100%); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+
+        .prompt-box::-webkit-scrollbar { width: 6px; }
+        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+
+        .copy-btn {
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
+        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        #notification {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
+        }
+        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
+        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
+        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
+        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
+        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+
+        @keyframes scratchAnim {
+            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
+        }
+
+        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
+    <div id="splashScreen" onclick="enterSite()">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+    </div>
+
+    <header>
+        <div class="logo">SERENA</div>
+        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">SERENA COLABORADORA</div>
+        <div class="metallic-text">FLOW </div>
+        <div style="position: relative;">
+            <div class="prompt-box" id="promptContent">
+                <div class="blood-drip"></div>
+                <div class="fang-bottom-left"></div>
+                <div class="fang-bottom-right"></div>
+
+       Ultra-realistic cinematic avatar 3D female and female baby portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+
+Vertical 4:5 aspect ratio intimate lifestyle portrait. Medium full-body framing capturing a female and her female baby sitting together on a modern kitchen countertop while drinking from matching porcelain teacups. Straight-on camera angle emphasizing both figures, their coordinated outfits, and their affectionate everyday interaction. The female occupies the left side of the frame while the female baby sits comfortably beside her on the right side. Both figures are captured from head to feet, with their legs naturally extending over the edge of the countertop. Sharp focus on both figures with soft cinematic depth of field. Cozy luxury lifestyle composition inspired by premium female hood editorials.
+
+POSE & BODY POSITIONING
+
+Female avatar sitting comfortably on the edge of a polished kitchen countertop with a naturally relaxed posture while drinking from a delicate porcelain teacup. Her torso remains upright with a slight backward lean, one arm raised toward her face holding the cup while the other hand rests naturally between her thighs near the edge of the countertop. Her legs hang over the counter with softly bent knees, relaxed ankles, and naturally positioned bare feet. Female baby sits independently beside her on the countertop with her legs hanging comfortably over the edge, one hand holding a matching porcelain teacup against her mouth while the other rests gently near her lap. Their bodies remain closely positioned, creating an intimate and affectionate female -and-female baby composition with realistic anatomy and natural interaction.
+
+HEAD POSITION & GAZE
+
+Female avatar gently tilts her head backward while raising the porcelain teacup to her lips, with her chin slightly elevated and her eyes softly closed during the drinking gesture. Female baby keeps her head naturally lowered with a slight forward tilt while looking downward toward her porcelain teacup. Both maintain relaxed neck positioning and effortless natural alignment.
+
+FEMALE AVATAR
+
+FACIAL EXPRESSION
+
+The female displays a soft, serene expression with her eyes gently closed while drinking from the porcelain teacup. Her eyebrows remain naturally relaxed, and her facial muscles convey a peaceful, loving expression. Her lips are softly positioned against the rim of the cup in a natural drinking gesture, conveying deep emotional warmth and contentment.
+
+FACE & IDENTITY
+
+Adult female CGI avatar with a refined oval face shape, high defined cheekbones, and a sharp, elegant jawline. She features large, striking almond-shaped grey-green eyes with thick, dramatic natural lashes and perfectly groomed, brushed-up "laminated" dark eyebrows. Her nose is straight and slender, and her lips are full with a glossy, natural rosy-nude tint. Her skin is fair with subtle warm-neutral undertones, featuring realistic micro-pores, a high-gloss hydrated sheen, and a prominent, artistic dusting of freckles across the bridge of her nose and upper cheeks. Clearly fictional CGI beauty with stylized influencer proportions.
+
+HAIR
+
+Medium-length dark brown hair styled with a soft center part and a naturally straight, smooth, silky texture. The hair falls evenly from the crown, framing both sides of her face and extending slightly below the shoulders with softly curved, feathered ends. Fine face-framing strands follow the natural contours of her cheeks and neck, while the remaining lengths rest loosely over her shoulders and upper back. The hairstyle features a polished yet effortless silhouette, realistic strand definition, subtle deep chocolate-brown tonal variation, natural volume, intense shine, and advanced Blender-style hair rendering.
+
+ACCESSORIES & DETAILS
+
+Delicate gold chain necklace featuring a small polished pendant resting naturally against her upper chest. Thin gold bracelet around one wrist and a delicate minimalist gold ring with subtle metallic reflections. Elegant white porcelain teacup featuring a softly scalloped rim, delicate pale pink floral patterns, embossed decorative details, and a curved handle with realistic glossy ceramic reflections. Minimal jewelry styling with refined luxury aesthetics and realistic Blender material rendering.
+
+OUTFIT
+
+White short-sleeve pajama shirt featuring a relaxed button-front silhouette, a softly structured notched collar, delicate piping along the collar and front opening, and a scattered miniature red heart print across the fabric. The shirt features a slightly loose fit, short relaxed sleeves, small white buttons, and natural fabric folds around the waist and torso. Matching white pajama shorts featuring the same delicate red heart print, a comfortable elastic waistband, softly rounded hems, and a relaxed silhouette ending at the upper thighs. Premium lightweight cotton fabric with realistic textile texture, natural folds, subtle stitching, smooth fabric draping, and elegant casual luxury styling.
+
+BODY & PHYSIQUE
+
+Slim youthful feminine physique with graceful shoulders, natural feminine anatomy, toned arms, elegant seated posture, slender legs, smooth body transitions, balanced proportions, and premium Blender CGI contour shading.
+
+SKIN & REALISM
+
+Ultra-detailed Seedream 5.0 skin rendering with realistic pores, subtle glossy highlights, hydrated skin sheen, and physically accurate subsurface scattering. Soft reflective shine appears across the shoulders, arms, legs, collarbone, and face due to warm indoor illumination. Natural CGI skin texture without excessive smoothing, maintaining polished Blender-style material realism.
+
+FEMALE BABY AVATAR
+
+FACIAL EXPRESSION
+
+The female baby exhibits a soft, peaceful, and focused expression while drinking from her matching porcelain teacup. Her grey-green eyes are gently lowered toward the cup, with relaxed eyebrows and naturally rounded rosy cheeks. Her small lips rest softly against the rim of the teacup, creating a sweet and innocent expression full of childhood curiosity and gentle concentration.
+
+FACE & IDENTITY
+
+Female baby CGI avatar with a classic rounded toddler face, soft chubby cheeks, and a small, delicate chin. She has large, bright round grey-green eyes that match the female , with fine, dark eyelashes. Her forehead is high and smooth, and her nose is a tiny, cute button shape. Her skin is exceptionally soft and fair with delicate warm undertones, natural rosy highlights on the cheeks, and a pristine, hydrated texture featuring a light, natural dusting of freckles across the nose and cheeks. Clearly fictional CGI avatar aesthetics with refined Seedream realism.
+
+HAIR
+
+Short dark brown toddler hair styled into two small, symmetrical high mini buns positioned on either side of the upper crown. A soft center part separates the hair into two sections, with fine silky strands gently gathered upward into rounded miniature buns. Delicate wispy baby hairs frame the forehead, temples, and ears, while a few naturally loose strands curve softly around the sides of her face and nape. The hairstyle features subtle deep chocolate-brown tonal variations, realistic strand definition, natural baby hair texture, soft volume, a gentle shine, and advanced Blender-style hair rendering.
+
+ACCESSORIES & DETAILS
+
+Small delicate hair elastics securing the two miniature high buns with a neat, natural finish. Matching white porcelain teacup featuring delicate pale pink floral patterns, softly embossed decorative details, a curved handle, and polished glossy ceramic reflections. Minimal child accessories with refined luxury styling and realistic Blender material rendering.
+
+OUTFIT
+
+White short-sleeve toddler pajama shirt featuring a relaxed button-front silhouette, a small notched collar, delicate piping, and a scattered miniature red heart print across the fabric. The shirt features short relaxed sleeves, small white buttons, and a comfortable loose fit with natural folds around the torso. Matching white toddler pajama shorts featuring the same delicate red heart pattern, a softly gathered elastic waistband, relaxed leg openings, and gentle fabric draping. Premium lightweight cotton fabric with realistic textile texture, subtle stitching, natural folds, soft draping, and luxury children's clothing construction. Bare feet with naturally relaxed toes and delicate toddler proportions.
+
+BODY & PHYSIQUE
+
+Realistic toddler anatomy with naturally rounded proportions, soft arms, delicate hands, smooth legs, gentle shoulders, age-appropriate body structure, relaxed seated posture, naturally dangling legs, and realistic interaction with the female.
+
+SKIN & REALISM
+
+Ultra-detailed Seedream 5.0 skin rendering with realistic softness, subtle complexion variation, delicate infant skin texture, hydrated highlights, natural translucency, and physically accurate subsurface scattering. Skin appears smooth, healthy, and luminous while preserving realistic infant characteristics and premium CGI avatar aesthetics.
+
+LIGHTING
+
+Soft warm indoor lighting illuminates the kitchen, with delicate golden under-cabinet lighting creating a cozy glow across the stone backsplash and countertop surfaces. Gentle ambient illumination highlights the skin, hair, clothing, porcelain teacups, and kitchen furniture while producing smooth realistic shadows. Warm light reflections enhance the glossy ceramic surfaces, polished metallic details, and natural skin translucency. Balanced cinematic lighting enhances realistic facial rendering, textile materials, and the intimate editorial atmosphere.
+
+ENVIRONMENT
+
+Modern cozy luxury kitchen featuring floor-to-ceiling matte beige cabinetry with clean minimalist panel fronts and delicate gold metallic handles. Light cream-colored stone countertops with subtle natural veining extend along the kitchen walls, complemented by a matching warm beige stone backsplash. Soft golden under-cabinet lighting creates an inviting atmosphere beneath the upper cabinets. A white built-in oven with a black glass door and stainless-steel details is positioned beneath a white gas cooktop with black burner grates. A tall transparent glass vase filled with elegant white, blush pink, and dusty rose dahlias stands on the countertop beside the female baby. A white textured electric kettle rests near the right side of the cooktop. On the left side, a small decorative open shelf displays miniature ceramic houses, delicate ornaments, and charming rabbit figurines dressed in pastel clothing. A light stone kitchen sink is partially visible beside the female. Premium cabinetry materials, realistic stone textures, polished metallic accents, clean contemporary interior design, softly detailed background, and elegant luxury family lifestyle ambiance.
+
+MOOD & AESTHETIC
+
+Luxury female hood editorial blended with premium family lifestyle photography, cozy home atmosphere, emotional warmth, intimate parent-female baby connection, coordinated mother-and-daughter pajama styling, peaceful morning tea ritual, modern minimalist aesthetics, polished CGI realism, refined influencer lifestyle, sophisticated storytelling, and high-end virtual-avatar beauty rendering.
+
+STYLE & RENDER QUALITY
+
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity female and female baby avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of a real photograph.
+                
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
+        <div style="text-align: center;">
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
+        </div>
+    </div>
+
+    <div id="musicPlayerContainer">
+        <audio id="bgMusic" loop>
+            <source src="musicserena.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div id="notification">
+        <div class="scratch-mark">
+            <div class="scratch-line scratch-1"></div>
+            <div class="scratch-line scratch-2"></div>
+            <div class="scratch-line scratch-3"></div>
+        </div>
+        <div id="notificationText">PROMPT COPIADO!</div>
+    </div>
+
+    <textarea id="hiddenTextarea"></textarea>
+
+    <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
+        function createBat() {
+            const bat = document.createElement('img');
+            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
+            bat.className = 'bat';
+            const startY = Math.random() * window.innerHeight;
+            const duration = 5 + Math.random() * 7;
+            bat.style.top = `${startY}px`;
+            bat.style.animationDuration = `${duration}s`;
+            document.body.appendChild(bat);
+            setTimeout(() => { bat.remove(); }, duration * 1000);
+        }
+
+        function enterSite() {
+            const splash = document.getElementById('splashScreen');
+            const music = document.getElementById('bgMusic');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            music.play().catch(e => console.log("Audio play prevented."));
+            setInterval(createBat, 3000);
+            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptContent').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            const textToCopy = promptText + "\n\n@xserena_player";
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
+                const textarea = document.getElementById('hiddenTextarea');
+                textarea.value = textToCopy;
+                textarea.select();
+                document.execCommand('copy');
+                executarMudancaBotao();
+            }
+
+            function executarMudancaBotao() {
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    copyBtn.innerText = "Copiar Prompt";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
