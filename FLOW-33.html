@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CONFIGURAÇÃO PARA O LINK LIMPO (OPEN GRAPH) -->
+    <title>SERENA • TEZZA PROMPTS</title>
+    <meta name="description" content="TEZZA PROMPTS OFICIAL">
+
+    <!-- Meta Tags para forçar o Instagram a NÃO mostrar imagem -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20FLOW.html?refresh=true">
+    <meta property="og:title" content="SERENA • TEZZA PROMPTS">
+    <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
+    
+    <!-- Forçamos o robô a não encontrar imagem aqui -->
+    <meta property="og:image" content="">
+    
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;700&family=Marcellus&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(0, 0, 0, 0.68);
+            --glass-border: rgba(255, 0, 0, 0.6);
+            --accent-color: #ff0000;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --dark-color: #000000;
+            --text-color: #ffffff;
+            --feline-gold: #ff0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+        #splashScreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .moon-gif {
+            position: absolute;
+            top: -50px; left: -50px; width: 500px;
+            z-index: 10000;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+            pointer-events: none;
+        }
+
+        .bat {
+            position: fixed;
+            width: 120px;
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
+            animation: fly linear forwards;
+        }
+
+        @keyframes fly {
+            from { transform: translate(-200px, 0) scale(1); }
+            to { transform: translate(calc(100vw + 200px), -100px) scale(0.8); }
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 35%, #8b0000 0%, #4b0000 38%, #190000 78%, #050000 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(120,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body > * { position: relative; z-index: 1; }
+
+        header { text-align: center; margin-bottom: 30px; animation: fadeInDown 1.2s ease-out; width: 100%; max-width: 800px; z-index: 10; }
+        .logo { font-family: 'Nosifer', cursive; font-size: 3.5rem; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent-color); text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 1); }
+        .subtitle { font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 4px; opacity: 0.9; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 20px; }
+
+        .container {
+            width: 100%; max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title { font-family: 'Nosifer', cursive; font-size: 1.5rem; font-weight: 400; margin-bottom: 30px; color: var(--accent-color); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,0,0,0.8); display: inline-block; padding-bottom: 5px; }
+
+        .prompt-box {
+            background: linear-gradient(110deg, rgba(30, 0, 0, 0.4) 30%, rgba(255, 0, 0, 0.2) 48%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 0, 0, 0.2) 52%, rgba(30, 0, 0, 0.4) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px 40px 40px 40px;
+            margin-bottom: 30px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 3px solid var(--blood-red);
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.15), 0 0 25px rgba(139, 0, 0, 0.6);
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        @keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+
+        .metallic-text {
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 25px; display: block;
+            background: linear-gradient(to right, #444 20%, #fff 40%, #fff 60%, #444 80%);
+            background-size: 200% auto;
+            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine-metal 3s linear infinite;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes shine-metal { to { background-position: 200% center; } }
+
+        .blood-drip { position: absolute; top: 0; left: 0; width: 100%; height: 60px; background-image: none;
+            background: linear-gradient(to bottom, #ff0000 0%, #8b0000 45%, transparent 100%); background-size: 100% 100%; background-repeat: no-repeat; z-index: 10; pointer-events: none; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); opacity: 0.9; }
+
+        .prompt-box::before, .prompt-box::after, .fang-bottom-left, .fang-bottom-right { content: ''; position: absolute; width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; z-index: 15; }
+        .prompt-box::before { top: -3px; left: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .prompt-box::after { top: -3px; right: 30px; border-top: 35px solid var(--blood-red); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-left { bottom: -3px; left: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+        .fang-bottom-right { bottom: -3px; right: 30px; border-bottom: 35px solid var(--blood-red); filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.8)); }
+
+        .prompt-box::-webkit-scrollbar { width: 6px; }
+        .prompt-box::-webkit-scrollbar-thumb { background-color: var(--accent-color); border-radius: 10px; }
+
+        .copy-btn {
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #4a0000, #8b0000, #ff0000);
+            color: white; border: 2px solid rgba(255, 0, 0, 0.5); padding: 20px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; font-size: 1rem; font-weight: 400; cursor: pointer; transition: all 0.4s;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); filter: brightness(1.2); border-color: #fff; }
+
+        .social-tag { color: var(--accent-color); text-decoration: none; font-weight: 900; font-family: 'Nosifer', cursive; font-size: 0.9rem; transition: 0.3s; }
+        .social-tag:hover { text-shadow: 0 0 15px var(--accent-color); color: #fff; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        #notification {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(40, 0, 0, 0.95); color: var(--accent-color); padding: 40px 60px; border-radius: 10px;
+            font-family: 'Nosifer', cursive; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; z-index: 2000; box-shadow: 0 0 70px rgba(255, 0, 0, 0.8); border: 3px solid var(--accent-color);
+            text-align: center; transition: all 0.3s;
+        }
+        #notification.show { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .scratch-mark { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: -1; opacity: 0.6; }
+        .scratch-line { position: absolute; background: linear-gradient(90deg, transparent, var(--accent-color), transparent); height: 2px; width: 150%; transform: rotate(-45deg); left: -25%; }
+        .scratch-1 { top: 20%; animation: scratchAnim 0.4s ease-out forwards; }
+        .scratch-2 { top: 40%; animation: scratchAnim 0.4s ease-out 0.1s forwards; }
+        .scratch-3 { top: 60%; animation: scratchAnim 0.4s ease-out 0.2s forwards; }
+
+        @keyframes scratchAnim {
+            0% { transform: rotate(-45deg) translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: rotate(-45deg) translateX(100%); opacity: 0; }
+        }
+
+        #musicPlayerContainer { position: fixed; top: -1000px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+        #hiddenTextarea { position: absolute; left: -9999px; opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen SEM A TAG IMG DIRETA (Robôs não verão) -->
+    <div id="splashScreen" onclick="enterSite()">
+        <!-- O GIF será injetado via JavaScript apenas para humanos -->
+    </div>
+
+    <header>
+        <div class="logo">SERENA</div>
+        <div class="subtitle">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+        <div class="section-title">SERENA COLABORADORA</div>
+        <div class="metallic-text">FLOW </div>
+        <div style="position: relative;">
+            <div class="prompt-box" id="promptContent">
+                <div class="blood-drip"></div>
+                <div class="fang-bottom-left"></div>
+                <div class="fang-bottom-right"></div>
+
+       Ultra-realistic cinematic avatar 3D female portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+Vertical 4:5 fashion editorial infographic titled “OUTFIT BREAKDOWN.” A refined, symmetrical magazine-layout design on a warm ivory background, enclosed by a thin double-line rectangular border. A full-length female avatar occupies the left half of the layout. On the right half, four individual outfit-detail panels are arranged in a precise two-by-two grid, each enclosed by a fine border. At the top of the right section, center the heading “OUTFIT BREAKDOWN,” with thin horizontal rules and a small centered four-point star ornament beneath it, followed by the subtitle “THE LOOK.” Place a footer below the four panels reading “CONFIDENCE IN EVERY DETAIL,” framed by short horizontal rules, with another fine-line ornament and small centered star beneath. Maintain generous spacing, balanced margins, crisp alignment, and an elegant high-fashion catalog aesthetic.
+
+POSE & BODY POSITIONING
+Show the woman full length, standing in a poised fashion-model stance with her torso angled slightly toward the viewer. Her weight rests primarily on one leg, while the other leg crosses subtly in front, creating a graceful elongated silhouette. Keep both arms relaxed at her sides, hands naturally open, and fingers softly extended. Her shoulders are level and relaxed, and her posture is confident and composed. In the four right-side panels, display clean, front-facing product views of the individual crop top, high-waisted bottoms, mesh leggings, and boots, each centered and isolated against the same ivory background.
+
+HEAD POSITION & GAZE
+Her head is slightly tilted, chin subtly raised, and face directed toward the camera. Her eyes gaze calmly and confidently into the lens. Keep her head position elegant and natural, with the long, straight hair falling smoothly around her face and down her back.
+
+FACIAL EXPRESSION
+Serene, self-assured fashion-editorial expression with relaxed eyes and softly closed, full lips. Her expression is poised and sophisticated, communicating confidence without an exaggerated smile.
+
+FACE & IDENTITY
+Adult female CGI avatar with a refined oval face, softly defined cheekbones, a delicate jawline, a slim straight nose, full lips, and almond-shaped brown eyes. Use subtle, polished makeup with warm neutral tones, softly defined eyeliner and lashes, lightly bronzed cheeks, and a natural nude lip. Preserve consistent facial identity and clearly fictional digital-avatar styling throughout the image.
+
+HAIR
+Very long, perfectly straight, exceptionally smooth dark-brown hair, reaching all the way to the waist. The hair is sleek, glossy, and uniformly straight, with a clean center part and smooth face-framing sections. It falls naturally down the back and over the shoulders with minimal movement, no waves, no curls, and no visible frizz. The rich dark-brown color and waist-length straight texture are clear and consistent.
+
+ACCESSORIES & DETAILS
+No prominent jewelry or distracting accessories. Include the fine border lines, delicate horizontal rules, and small four-point star ornaments in the layout. Keep the typography and infographic details sharp, clean, and precisely aligned.
+
+OUTFIT
+The model wears a coordinated all-black fashion set: a fitted long-sleeve cropped top with a high neckline and intricate sheer mesh construction; high-waisted black bottoms with opaque coverage through the waist and upper hip area; patterned black mesh leggings with large decorative floral and geometric openwork motifs; and black sock-style ankle boots with pointed toes and slender high heels. The crop top has a dense patterned mesh design across the chest and sleeves, and ends above the waist. The leggings feature elaborate, symmetrical-looking lace and fishnet patterns running down both legs. The boots are matte black, close-fitting, with a narrow pointed toe and slim stiletto heel. In the product panels, show the pieces separately in clean, front-facing views, matching the outfit worn by the model.
+
+BODY & PHYSIQUE
+Adult feminine figure with a slim, toned physique, defined waist, and long legs. Use elegant fashion-model proportions while maintaining natural anatomy and balanced body proportions. The outfit’s mesh patterns should follow the body naturally without distorting the silhouette.
+
+SKIN & REALISM
+Warm, softly bronzed skin with realistic tonal variation, subtle natural texture, delicate pores, and gentle highlights. Render the skin with refined CGI shading and subtle subsurface scattering, maintaining a polished editorial finish while keeping the avatar clearly fictional.
+
+LIGHTING
+Soft, even studio lighting with gentle warm highlights and delicate shadows. Use a subtly brighter key light from the front to clearly reveal the model, the mesh outfit patterns, and the individual product details. Keep the background uniformly warm ivory and avoid harsh contrast.
+
+ENVIRONMENT
+Minimal, seamless warm ivory studio backdrop with no furniture or unrelated objects. The image is presented as a luxury fashion outfit-breakdown infographic, with the full-length model on the left and four bordered garment-detail panels on the right.
+
+MOOD & AESTHETIC
+Elegant, confident, refined, and editorial. High-fashion styling meets a clean luxury catalog presentation, with a restrained monochrome palette of black, warm ivory, and subtle taupe-gray lines. The overall design is polished, minimal, feminine, and premium.
+
+STYLE & RENDER QUALITY
+Recreate all visible infographic text exactly, with correct spelling, punctuation, capitalization, spacing, and line breaks. Use sophisticated, high-contrast serif typography in dark charcoal-brown. The large centered title at the top reads:
+“OUTFIT BREAKDOWN”
+Below it, between fine horizontal lines and a small centered star ornament, write:
+“THE LOOK”
+
+Under the top-left product panel, write:
+“CROP TOP”
+“LONG SLEEVE • HIGH NECK”
+“MESH • BLACK”
+
+Under the top-right product panel, write:
+“HIGH-WAISTED BOTTOMS”
+“HIGH CUT • BLACK”
+
+Under the bottom-left product panel, write:
+“MESH LEGGINGS”
+“PATTERNED • BLACK”
+
+Under the bottom-right product panel, write:
+“BOOTS”
+“SOCK STYLE • BLACK”
+“HIGH HEEL”
+
+At the bottom of the layout, between short horizontal rules, write:
+“CONFIDENCE IN EVERY DETAIL”
+Add a fine horizontal line with a small centered four-point star ornament below this phrase. Do not add any other wording beyond the fixed “TEZZA PROMPTS” text required at the bottom center. Ensure all text remains legible, correctly placed, and unobstructed. Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity female avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of a real photograph.
+
+
+                
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">Copiar Prompt</button>
+        <div style="text-align: center;">
+            <p style="font-family: 'Marcellus', serif; font-size: 1rem; letter-spacing: 2px;">MARQUE <a href="#" class="social-tag">@xserena_player</a></p>
+        </div>
+    </div>
+
+    <div id="musicPlayerContainer">
+        <audio id="bgMusic" loop>
+            <source src="musicserena.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div id="notification">
+        <div class="scratch-mark">
+            <div class="scratch-line scratch-1"></div>
+            <div class="scratch-line scratch-2"></div>
+            <div class="scratch-line scratch-3"></div>
+        </div>
+        <div id="notificationText">PROMPT COPIADO!</div>
+    </div>
+
+    <textarea id="hiddenTextarea"></textarea>
+
+    <script>
+        // Técnica para esconder imagens de robôs de redes sociais
+        window.onload = function() {
+            const splash = document.getElementById('splashScreen');
+            // Injetamos o GIF apenas quando a página carrega no navegador
+            // Robôs de preview (como o do Instagram) geralmente não executam esse script
+            const img = document.createElement('img');
+            img.src = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzRsZXY2czUwYWZ2aXF5eWJubHRweHBwcnRidmZjcmdueHN2bGtjMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Y9Fl2K4IlsRQdlo8EH/giphy.gif";
+            img.className = "moon-gif";
+            img.alt = "Moon";
+            splash.appendChild(img);
+        };
+
+        function createBat() {
+            const bat = document.createElement('img');
+            bat.src = 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHM2emF3emJlY2dyZGtjcnB3YXI1YmlhcXp0b2xhemVsZmpwY29xbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxxSayMjPZEySRJhUG/giphy.gif';
+            bat.className = 'bat';
+            const startY = Math.random() * window.innerHeight;
+            const duration = 5 + Math.random() * 7;
+            bat.style.top = `${startY}px`;
+            bat.style.animationDuration = `${duration}s`;
+            document.body.appendChild(bat);
+            setTimeout(() => { bat.remove(); }, duration * 1000);
+        }
+
+        function enterSite() {
+            const splash = document.getElementById('splashScreen');
+            const music = document.getElementById('bgMusic');
+            splash.style.opacity = '0';
+            setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            music.play().catch(e => console.log("Audio play prevented."));
+            setInterval(createBat, 3000);
+            for(let i=0; i<3; i++) { setTimeout(createBat, i * 1000); }
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptContent').innerText;
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            const textToCopy = promptText + "\n\n@xserena_player";
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => { executarMudancaBotao(); });
+            } else {
+                const textarea = document.getElementById('hiddenTextarea');
+                textarea.value = textToCopy;
+                textarea.select();
+                document.execCommand('copy');
+                executarMudancaBotao();
+            }
+
+            function executarMudancaBotao() {
+                copyBtn.innerText = "PROMPT COPIADO COM SUCESSO MARQUE @xserena_player";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    copyBtn.innerText = "Copiar Prompt";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
