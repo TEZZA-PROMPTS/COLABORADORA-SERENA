@@ -133,6 +133,7 @@
     <source src="musicpotter.mp3" type="audio/mpeg">
   </audio>
 
+
   <main class="page">
     <header>
       <div class="star" aria-hidden="true">✦</div>
@@ -177,7 +178,11 @@
             <div class="prompt-box" id="promptBox">
               <div class="prompt-shine"></div>
               <div class="prompt-brand" id="promptBrand">COLABORADORA SERENA</div>
-              <p id="promptText"></p>
+              <p id="promptText">
+
+[COLOQUE O SEU PROMPT AQUI]
+
+              </p>
             </div>
             <button class="copy-prompt" id="copyPrompt" type="button">Copiar Prompt</button>
             <p class="copy-notice" id="copyNotice" hidden>MARQUE @xserena_player AO USAR O PROMPT</p>
@@ -263,15 +268,6 @@
       again.addEventListener('click', function () {
         houseArea.dataset.house = house.textContent;
         promptBrand.textContent = 'COLABORADORA SERENA ' + house.textContent.toUpperCase();
-        promptText.textContent = '
-          
-          
-          
-  [COLOQUE O SEU PROMPT AQUI]
-        
-        
-        
-        ';
         houseArea.hidden = false;
         document.body.classList.add('part-two');
         houseArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
