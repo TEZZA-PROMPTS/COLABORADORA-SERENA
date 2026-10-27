@@ -78,6 +78,7 @@
     .house-area h4 { margin: 0 0 14px; color: var(--accent); font-family: Cinzel, Georgia, serif; font-size: 25px; }
     .prompt-box { position: relative; min-height: 150px; max-height: 280px; overflow: auto; padding: 24px 20px; text-align: left; border: 2px solid var(--accent); border-radius: 12px; background: linear-gradient(120deg, rgba(58,10,10,.64), rgba(12,12,18,.92)); box-shadow: inset 0 0 35px rgba(0,0,0,.5); }
     .prompt-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.12) 50%, transparent 65%); background-size: 220% 100%; animation: shine 4s linear infinite; }
+    .prompt-brand { position: relative; z-index: 1; margin-bottom: 16px; padding-bottom: 12px; color: var(--accent); border-bottom: 1px solid var(--accent-soft); font-family: Cinzel, Georgia, serif; font-size: 15px; font-weight: 800; letter-spacing: .12em; text-align: center; }
     .prompt-box p { position: relative; z-index: 1; margin: 0; color: var(--ink); white-space: pre-wrap; font-family: Montserrat, Arial, sans-serif; font-size: 13px; line-height: 1.65; }
     .copy-prompt { width: 100%; margin-top: 15px; padding: 15px; color: #17130b; background: var(--accent); border: 1px solid var(--accent); border-radius: 10px; font-weight: 800; letter-spacing: .04em; transition: .25s; }
     .copy-prompt:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 0 22px var(--accent-soft); }
@@ -172,10 +173,10 @@
           <button class="listen" id="listen" type="button">◉ Ouvir o veredito</button>
           <section class="house-area" id="houseArea" hidden>
             <div class="serena-title">SERENA</div>
-            <div class="serena-subtitle">COLABORADORA SERENA</div>
             <div class="prompt-mode">GEMINI [MODO AUTO]</div>
             <div class="prompt-box" id="promptBox">
               <div class="prompt-shine"></div>
+              <div class="prompt-brand">COLABORADORA SERENA</div>
               <p id="promptText"></p>
             </div>
             <button class="copy-prompt" id="copyPrompt" type="button">Copiar Prompt</button>
@@ -263,9 +264,11 @@
           
           
         
-        [COLOQUE O PROMPT AQUI ]
+        [COLOQUE O SEU PROMPT AQUI]
           
         
+        
+        ';
         houseArea.hidden = false;
         document.body.classList.add('part-two');
         houseArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -274,21 +277,27 @@
 
       copyPrompt.addEventListener('click', function () {
         const text = promptText.textContent + '\n\nMarque @xserena_player\nSERENA · TEZZA PROMPTS OFICIAL — CONTEÚDO PROTEGIDO.';
-        const finish = function () {
-          copyPrompt.textContent = 'PROMPT COPIADO COM SUCESSO';
-          copyNotice.hidden = false;
-          window.setTimeout(function () { copyPrompt.textContent = 'Copiar Prompt'; }, 2200);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(finish);
-        } else {
+        // A mensagem aparece imediatamente, mesmo se o navegador bloquear a cópia automática.
+        copyNotice.hidden = false;
+        copyNotice.textContent = 'MARQUE @xserena_player AO USAR O PROMPT';
+        copyPrompt.textContent = 'PROMPT COPIADO COM SUCESSO';
+        window.setTimeout(function () { copyPrompt.textContent = 'Copiar Prompt'; }, 2200);
+
+        const fallbackCopy = function () {
           const area = document.createElement('textarea');
           area.value = text;
+          area.setAttribute('readonly', '');
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
           document.body.appendChild(area);
           area.select();
-          document.execCommand('copy');
+          try { document.execCommand('copy'); } catch (error) { /* mensagem já foi exibida */ }
           area.remove();
-          finish();
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(fallbackCopy);
+        } else {
+          fallbackCopy();
         }
       });
 
