@@ -176,7 +176,7 @@
             <div class="prompt-mode">GEMINI [MODO AUTO]</div>
             <div class="prompt-box" id="promptBox">
               <div class="prompt-shine"></div>
-              <div class="prompt-brand">COLABORADORA SERENA</div>
+              <div class="prompt-brand" id="promptBrand">COLABORADORA SERENA</div>
               <p id="promptText"></p>
             </div>
             <button class="copy-prompt" id="copyPrompt" type="button">Copiar Prompt</button>
@@ -201,6 +201,7 @@
       ];
 
       const root = document.documentElement;
+
       const bgMusic = document.getElementById('bgMusic');
       const startMusic = function () {
         bgMusic.volume = 0.35;
@@ -218,6 +219,7 @@
       const listen = document.getElementById('listen');
       const houseArea = document.getElementById('houseArea');
       const promptText = document.getElementById('promptText');
+      const promptBrand = document.getElementById('promptBrand');
       const copyPrompt = document.getElementById('copyPrompt');
       const copyNotice = document.getElementById('copyNotice');
       const label = document.getElementById('label');
@@ -260,12 +262,13 @@
 
       again.addEventListener('click', function () {
         houseArea.dataset.house = house.textContent;
-        promptText.textContent = 'PROMPT DA ' + house.textContent.toUpperCase() + '\n\n
+        promptBrand.textContent = 'COLABORADORA SERENA ' + house.textContent.toUpperCase();
+        promptText.textContent = '
           
           
+          
+  [COLOQUE O SEU PROMPT AQUI]
         
-        [COLOQUE O SEU PROMPT AQUI]
-          
         
         
         ';
@@ -276,7 +279,7 @@
 
 
       copyPrompt.addEventListener('click', function () {
-        const text = promptText.textContent + '\n\nMarque @xserena_player\nSERENA · TEZZA PROMPTS OFICIAL — CONTEÚDO PROTEGIDO.';
+        const text = promptText.textContent + '\n\nMarque @xserena_player';
         // A mensagem aparece imediatamente, mesmo se o navegador bloquear a cópia automática.
         copyNotice.hidden = false;
         copyNotice.textContent = 'MARQUE @xserena_player AO USAR O PROMPT';
