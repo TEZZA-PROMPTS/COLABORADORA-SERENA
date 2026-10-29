@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERENA • TEZZA PROMPTS</title>
+  <meta name="description" content="TEZZA PROMPTS OFICIAL">
+  <!-- Configuração para manter o link limpo nas redes sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADORA-SERENA/COPIAR%20GEMINI.html?refresh=true">
+  <meta property="og:title" content="SERENA • TEZZA PROMPTS">
+  <meta property="og:description" content="TEZZA PROMPTS OFICIAL">
+  <!-- Sem imagem na prévia do link -->
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="noimageindex">
+
+  <meta name="theme-color" content="#12131b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Marcellus&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #d3a954;
+      --accent-soft: rgba(211, 169, 84, .22);
+      --ink: #fffaf0;
+      --muted: #c7bfad;
+      --glass: rgba(11, 13, 21, .79);
+      --border: rgba(234, 213, 163, .28);
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--ink);
+      font-family: Montserrat, Arial, sans-serif;
+      background: #050505;
+    }
+    body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(circle at 50% 40%, rgba(28,28,34,.32), rgba(0,0,0,.9) 82%); }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .page { width: min(1120px, calc(100% - 32px)); min-height: 100vh; margin: auto; padding: 28px 0 22px; display: flex; flex-direction: column; justify-content: center; }
+    header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+    .star { display: grid; place-items: center; width: 42px; height: 42px; color: var(--accent); border: 1px solid var(--border); border-radius: 50%; box-shadow: 0 0 22px var(--accent-soft); font-size: 20px; }
+    .overline { margin: 0; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: .22em; }
+    h1 { margin: 4px 0 0; font-family: Cinzel, Georgia, serif; font-size: clamp(23px, 4vw, 34px); letter-spacing: .04em; }
+    .card { position: relative; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; min-height: 555px; overflow: hidden; border: 1px solid var(--border); border-radius: 28px; background: var(--glass); box-shadow: 0 25px 75px rgba(0,0,0,.52), inset 0 0 70px rgba(255,255,255,.025); backdrop-filter: blur(12px); }
+    .card::after { content: ''; position: absolute; width: 470px; height: 470px; left: -155px; top: 50%; transform: translateY(-50%); border: 1px solid var(--accent-soft); border-radius: 50%; box-shadow: 0 0 0 28px rgba(255,255,255,.012), 0 0 0 58px rgba(255,255,255,.008); pointer-events: none; }
+    .visual { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .hat { position: relative; z-index: 2; width: 300px; max-width: 48vw; height: 300px; background: center / contain no-repeat url('https://media.giphy.com/media/9EnuwMN4qxFoDfnJam/giphy.gif'); filter: drop-shadow(0 15px 18px rgba(0,0,0,.7)); animation: float 4s ease-in-out infinite; }
+    .hat-ground { position: absolute; bottom: 103px; width: 210px; height: 34px; border-radius: 50%; background: #000; opacity: .45; filter: blur(15px); }
+    .spark { position: absolute; color: var(--accent); animation: twinkle 2.5s ease-in-out infinite; }
+    .spark.one { top: 27%; left: 27%; font-size: 19px; }
+    .spark.two { top: 45%; right: 24%; font-size: 28px; animation-delay: .8s; }
+    .content { position: relative; z-index: 2; padding: 65px 70px 65px 22px; }
+    .label { margin: 0 0 15px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: .23em; }
+    h2 { margin: 0 0 17px; font-family: Cinzel, Georgia, serif; font-size: clamp(31px, 5vw, 54px); line-height: 1.12; }
+    h2 span { color: var(--accent); }
+    .speech { max-width: 550px; margin: 0 0 29px; color: var(--muted); font-family: Marcellus, Georgia, serif; font-size: 17px; line-height: 1.65; }
+    label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 700; }
+    .form-row { display: flex; gap: 10px; max-width: 620px; }
+    input { min-width: 0; flex: 1; padding: 16px 17px; color: var(--ink); background: rgba(255,255,255,.075); border: 1px solid rgba(255,255,255,.22); border-radius: 10px; outline: none; }
+    input::placeholder { color: #999486; }
+    input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+    .primary, .again { border-radius: 10px; padding: 15px 18px; font-weight: 700; transition: .25s; }
+    .primary { color: #17130b; background: var(--accent); border: 1px solid var(--accent); white-space: nowrap; box-shadow: 0 8px 24px var(--accent-soft); }
+    .primary:hover, .again:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .primary span { margin-left: 12px; font-size: 18px; }
+    .error { min-height: 18px; margin: 8px 0 0; color: #f4a79e; font-size: 12px; }
+    .result { animation: reveal .55s ease both; }
+    .result small { color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: .22em; }
+    .result p { color: var(--muted); line-height: 1.6; }
+    .result h3 { margin: 5px 0 10px; color: var(--accent); font-family: Cinzel, Georgia, serif; font-size: clamp(40px, 6vw, 68px); text-shadow: 0 0 25px var(--accent-soft); }
+    .again { color: var(--ink); background: rgba(255,255,255,.08); border: 1px solid var(--border); }
+    .listen { margin-left: 14px; padding: 15px 0; color: var(--muted); background: none; border: 0; font-size: 13px; }
+    .listen:hover { color: var(--accent); }
+    .house-area { margin-top: 30px; padding: 30px 24px 24px; text-align: center; border: 1px solid var(--accent); border-radius: 16px; background: linear-gradient(145deg, rgba(20,8,8,.9), rgba(8,9,15,.94)); box-shadow: 0 0 28px var(--accent-soft), inset 0 0 35px rgba(255,255,255,.025); animation: reveal .55s ease both; }
+    .serena-title { color: var(--accent); font-family: Cinzel, Georgia, serif; font-size: clamp(34px, 5vw, 52px); font-weight: 800; letter-spacing: .16em; text-shadow: 0 0 18px var(--accent-soft); }
+    .serena-subtitle { margin-top: 3px; color: var(--ink); font-family: Marcellus, Georgia, serif; font-size: 13px; letter-spacing: .22em; }
+    .prompt-mode { margin: 25px 0 11px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+    .house-area h4 { margin: 0 0 14px; color: var(--accent); font-family: Cinzel, Georgia, serif; font-size: 25px; }
+    .prompt-box { position: relative; min-height: 150px; max-height: 280px; overflow: auto; padding: 24px 20px; text-align: left; border: 2px solid var(--accent); border-radius: 12px; background: linear-gradient(120deg, rgba(58,10,10,.64), rgba(12,12,18,.92)); box-shadow: inset 0 0 35px rgba(0,0,0,.5); }
+    .prompt-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.12) 50%, transparent 65%); background-size: 220% 100%; animation: shine 4s linear infinite; }
+    .prompt-brand { position: relative; z-index: 1; margin-bottom: 16px; padding-bottom: 12px; color: var(--accent); border-bottom: 1px solid var(--accent-soft); font-family: Cinzel, Georgia, serif; font-size: 15px; font-weight: 800; letter-spacing: .12em; text-align: center; }
+    .prompt-box p { position: relative; z-index: 1; margin: 0; color: var(--ink); white-space: pre-wrap; font-family: Montserrat, Arial, sans-serif; font-size: 13px; line-height: 1.65; }
+    .copy-prompt { width: 100%; margin-top: 15px; padding: 15px; color: #17130b; background: var(--accent); border: 1px solid var(--accent); border-radius: 10px; font-weight: 800; letter-spacing: .04em; transition: .25s; }
+    .copy-prompt:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 0 22px var(--accent-soft); }
+    .copy-notice { margin: 15px 0 0; padding: 11px 12px; color: var(--accent); border: 1px solid var(--accent); border-radius: 8px; background: var(--accent-soft); font-size: 11px; font-weight: 800; letter-spacing: .08em; animation: reveal .35s ease both; }
+    .social-line { margin: 18px 0 0; color: var(--muted); font-size: 13px; letter-spacing: .08em; }
+    .social-line strong { color: var(--accent); }
+    .protected-line { margin: 14px 0 0; color: #8d887b; font-size: 9px; letter-spacing: .1em; }
+    @keyframes shine { from { background-position: -110% 0; } to { background-position: 110% 0; } }
+    body.part-two .topbar,
+    body.part-two .visual,
+    body.part-two .footer,
+    body.part-two .content > .label,
+    body.part-two .content > h2,
+    body.part-two .content > .speech,
+    body.part-two .content > form,
+    body.part-two .result > small,
+    body.part-two .result > p,
+    body.part-two .result > h3,
+    body.part-two .result > .again,
+    body.part-two .result > .listen { display: none !important; }
+    body.part-two .page { justify-content: center; }
+    body.part-two .card { display: block; width: min(820px, 100%); min-height: auto; margin: auto; }
+    body.part-two .content { padding: 35px; }
+    body.part-two .result { display: block; }
+    body.part-two .house-area { display: block !important; margin: 0; padding: 42px 34px 32px; }
+
+    .footer { margin-top: 20px; color: #a9a291; text-align: center; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+    .footer span { color: var(--accent); margin: 0 8px; }
+    [hidden] { display: none !important; }
+    body.sorting .hat { animation: wobble .75s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+    @keyframes wobble { 0%,100% { transform: rotate(-5deg) scale(1); } 50% { transform: rotate(5deg) scale(1.08); } }
+    @keyframes twinkle { 0%,100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.15); } }
+    @keyframes reveal { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 800px) {
+      .page { width: min(100% - 22px, 650px); padding-top: 18px; }
+      .card { grid-template-columns: 1fr; min-height: auto; }
+      .visual { min-height: 245px; }
+      .hat { width: 220px; height: 220px; max-width: 62vw; }
+      .hat-ground { bottom: 38px; width: 165px; }
+      .card::after { left: 50%; top: 135px; transform: translateX(-50%); width: 350px; height: 350px; }
+      .content { padding: 15px 23px 38px; text-align: center; }
+      .speech { margin-left: auto; margin-right: auto; }
+      .form-row { flex-direction: column; text-align: left; }
+      .primary { width: 100%; }
+      .listen { display: block; margin: 12px auto 0; }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop preload="auto" aria-label="Música de fundo">
+    <source src="musicpotter.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <main class="page">
+    <header>
+      <div class="star" aria-hidden="true">✦</div>
+      <div>
+        <p class="overline">TEZZA PROMPTS OFICIAL</p>
+        <h1>SERENA • TEZZA PROMPTS</h1>
+      </div>
+    </header>
+
+    <section class="card" aria-live="polite">
+      <div class="visual" aria-hidden="true">
+        <div class="spark one">✦</div>
+        <div class="spark two">✧</div>
+        <div class="hat" role="img" aria-label="Chapéu Seletor animado"></div>
+        <div class="hat-ground"></div>
+      </div>
+
+      <div class="content">
+        <p class="label" id="label">PARTE 1 • O SORTEIO</p>
+        <h2 id="title">Hmm… vamos descobrir<br><span>a qual casa você pertence.</span></h2>
+        <p class="speech" id="speech">O Chapéu Seletor está pronto para ouvir seu nome. Respire fundo e confie na magia.</p>
+
+        <form id="sortingForm">
+          <label for="name">Como você se chama?</label>
+          <div class="form-row">
+            <input id="name" type="text" maxlength="32" autocomplete="name" placeholder="Digite seu nome" required>
+            <button class="primary" type="submit">Descobrir minha casa <span>→</span></button>
+          </div>
+          <p class="error" id="error" role="alert"></p>
+        </form>
+
+        <div class="result" id="result" hidden>
+          <small>O VEREDITO FOI DADO</small>
+          <p><strong id="personName"></strong>, o Chapéu Seletor escolheu:</p>
+          <h3 id="house"></h3>
+          <p id="message"></p>
+          <button class="again" id="again" type="button">Entrar na minha casa →</button>
+          <button class="listen" id="listen" type="button">◉ Ouvir o veredito</button>
+          <section class="house-area" id="houseArea" hidden>
+            <div class="serena-title">SERENA</div>
+            <div class="prompt-mode">GEMINI [MODO AUTO]</div>
+            <div class="prompt-box" id="promptBox">
+              <div class="prompt-shine"></div>
+              <div class="prompt-brand" id="promptBrand">COLABORADORA SERENA</div>
+              <p id="promptText">
+
+Ultra-realistic cinematic avatar 3D female portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 beauty realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI beauty proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+Vertical 9:16 fashion portrait, framed from head to mid-thigh with the lower legs and one raised foot also visible. The woman stands against a plain warm beige studio wall. Position her slightly off-center, leaving generous uncluttered negative space around her. Use a full-body perspective that captures her pose, outfit, handbag, and heels.
+
+POSE & BODY POSITIONING
+The woman leans her upper body diagonally toward the camera. One hand is raised and lightly touches the wall, holding a small black handbag by its handle. Her other hand reaches down to hold the heel or ankle strap of her raised foot. One leg is bent backward at the knee while the other supports her weight. Keep the pose elegant, balanced, and fashion-editorial.
+
+HEAD POSITION & GAZE
+Her head is turned slightly toward the camera and tilted gently to one side. She looks toward the viewer with a calm, confident gaze.
+
+FACIAL EXPRESSION
+Soft, poised expression with relaxed eyes and glossy, slightly parted lips. Her demeanor is composed and self-assured.
+
+FACE & IDENTITY
+Adult female CGI avatar with refined feminine features, softly sculpted cheekbones, a straight nose, defined brows, almond-shaped eyes, and full lips. Use polished makeup with defined lashes, subtle neutral eyeshadow, gentle contouring, and glossy nude-pink lipstick. Maintain a clearly fictional digital-avatar appearance.
+
+HAIR
+Long, extra-straight, sleek dark-brown hair with a smooth glossy finish. The hair has a clean side part and falls over one shoulder and down past the waist. Keep it exceptionally straight, without waves or curls.
+
+ACCESSORIES & DETAILS
+Small black handbag with a simple structured shape and narrow handle, held by the raised hand. Add delicate small earrings, a fine necklace, a slim metallic wristwatch or bracelet, and understated rings. Her nails are long, neatly shaped, and painted a pale neutral color. Do not describe or include tattoos.
+
+OUTFIT
+A fitted black mini dress with a ruched body, thin shoulder straps, and a black lace-trimmed neckline. Preserve the fitted silhouette, gathered fabric details, short hem, and delicate lace trim. The dress is entirely black. Pair it with black high-heeled sandals featuring thin straps and an ankle strap. The handbag and footwear are also entirely black.
+
+BODY & PHYSIQUE
+Adult feminine figure with a slim, naturally curvy silhouette, defined waist, and long legs. Maintain realistic anatomy and balanced proportions in the standing pose and bent-leg position.
+
+SKIN & REALISM
+Warm, medium complexion with natural tonal variation, subtle skin texture, delicate pores, and soft highlights. Use refined CGI skin shading and gentle subsurface scattering while maintaining a polished, clearly fictional avatar appearance.
+
+LIGHTING
+Soft, warm studio lighting illuminates her face and body, creating gentle shadows on the beige wall and subtle highlights on her hair, skin, outfit, and accessories. Keep the light even and flattering.
+
+ENVIRONMENT
+Minimal studio with a plain warm beige wall and matching floor. No additional furniture or props. The woman lightly touches the wall as part of the pose.
+
+MOOD & AESTHETIC
+Elegant, confident, feminine fashion editorial with a warm neutral background and monochromatic black styling. The overall look is polished, sophisticated, and modern.
+
+STYLE & RENDER QUALITY
+Preserve the leaning pose, raised bent leg, hand against the wall, black handbag, fitted black mini dress, lace trim, and black high-heeled sandals. Keep the clothing, handbag, and shoes black, and the hair long, extra-straight, and dark brown. Do not add captions, logos, or visible text beyond the fixed wording required in the opening. Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired beauty repaint style, high-fidelity female avatar rendering, realistic depth of field, glossy beauty aesthetic, polished virtual influencer atmosphere, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI avatar aesthetics instead of a real photograph.
+
+
+              </p>
+            </div>
+            <button class="copy-prompt" id="copyPrompt" type="button">Copiar Prompt</button>
+            <p class="copy-notice" id="copyNotice" hidden>MARQUE @xserena_player AO USAR O PROMPT</p>
+            <p class="social-line">Marque <strong>@xserena_player</strong></p>
+            <p class="protected-line">SERENA · TEZZA PROMPTS OFICIAL — CONTEÚDO PROTEGIDO.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer"><span>✦</span> quatro casas, uma nova história <span>✦</span></footer>
+  </main>
+
+  <script>
+    (function () {
+      const houses = [
+        { key: 'gryffindor', name: 'Grifinória', color: '#d55b4c', soft: 'rgba(213,91,76,.24)', message: 'Onde habitam os corajosos, os ousados e aqueles que seguem em frente mesmo quando o caminho parece difícil.' },
+        { key: 'slytherin', name: 'Sonserina', color: '#70ae8a', soft: 'rgba(112,174,138,.23)', message: 'Ambição, astúcia e determinação: sua história será escrita por quem sabe exatamente onde quer chegar.' },
+        { key: 'ravenclaw', name: 'Corvinal', color: '#78a8d8', soft: 'rgba(120,168,216,.24)', message: 'Para mentes curiosas, criativas e brilhantes, que encontram beleza nas perguntas e poder no conhecimento.' },
+        { key: 'hufflepuff', name: 'Lufa-Lufa', color: '#e2bb56', soft: 'rgba(226,187,86,.24)', message: 'Lealdade, paciência e gentileza: sua força cresce quando você caminha ao lado de quem ama.' }
+      ];
+
+      const root = document.documentElement;
+
+      const bgMusic = document.getElementById('bgMusic');
+      const startMusic = function () {
+        bgMusic.volume = 0.35;
+        bgMusic.play().catch(function () { /* o navegador pode exigir interação */ });
+      };
+
+      const form = document.getElementById('sortingForm');
+      const nameInput = document.getElementById('name');
+      const error = document.getElementById('error');
+      const result = document.getElementById('result');
+      const personName = document.getElementById('personName');
+      const house = document.getElementById('house');
+      const message = document.getElementById('message');
+      const again = document.getElementById('again');
+      const listen = document.getElementById('listen');
+      const houseArea = document.getElementById('houseArea');
+      const promptText = document.getElementById('promptText');
+      const promptBrand = document.getElementById('promptBrand');
+      const copyPrompt = document.getElementById('copyPrompt');
+      const copyNotice = document.getElementById('copyNotice');
+      const label = document.getElementById('label');
+      const title = document.getElementById('title');
+      const speech = document.getElementById('speech');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        startMusic();
+        const name = nameInput.value.trim().replace(/\s+/g, ' ');
+        if (name.length < 2) {
+          error.textContent = 'Digite pelo menos duas letras para o Chapéu ouvir seu nome.';
+          nameInput.focus();
+          return;
+        }
+        error.textContent = '';
+        document.body.classList.add('sorting');
+        form.hidden = true;
+        label.textContent = 'O CHAPÉU ESTÁ DECIDINDO';
+        title.innerHTML = 'Silêncio na sala…<br><span>escute com atenção.</span>';
+        speech.textContent = 'As casas estão chamando. O destino está prestes a ser revelado.';
+        window.setTimeout(function () { showResult(name); }, 1150);
+      });
+
+      function showResult(name) {
+        const selected = houses[Math.floor(Math.random() * houses.length)];
+        root.style.setProperty('--accent', selected.color);
+        root.style.setProperty('--accent-soft', selected.soft);
+        document.body.classList.remove('sorting');
+        personName.textContent = name;
+        house.textContent = selected.name;
+        message.textContent = selected.message;
+        label.textContent = 'A CERIMÔNIA TERMINOU';
+        title.innerHTML = 'Seu destino foi<br><span>revelado.</span>';
+        speech.textContent = 'Muito bem, ' + name + '. Que sua nova casa lhe traga grandes aventuras.';
+        result.hidden = false;
+        houseArea.hidden = true;
+        listen.hidden = !('speechSynthesis' in window);
+      }
+
+      again.addEventListener('click', function () {
+        houseArea.dataset.house = house.textContent;
+        promptBrand.textContent = 'COLABORADORA SERENA ' + house.textContent.toUpperCase();
+        houseArea.hidden = false;
+        document.body.classList.add('part-two');
+        houseArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+
+      copyPrompt.addEventListener('click', function () {
+        const text = promptText.textContent + '\n\nMarque @xserena_player';
+        // A mensagem aparece imediatamente, mesmo se o navegador bloquear a cópia automática.
+        copyNotice.hidden = false;
+        copyNotice.textContent = 'MARQUE @xserena_player AO USAR O PROMPT';
+        copyPrompt.textContent = 'PROMPT COPIADO COM SUCESSO';
+        window.setTimeout(function () { copyPrompt.textContent = 'Copiar Prompt'; }, 2200);
+
+        const fallbackCopy = function () {
+          const area = document.createElement('textarea');
+          area.value = text;
+          area.setAttribute('readonly', '');
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
+          document.body.appendChild(area);
+          area.select();
+          try { document.execCommand('copy'); } catch (error) { /* mensagem já foi exibida */ }
+          area.remove();
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(fallbackCopy);
+        } else {
+          fallbackCopy();
+        }
+      });
+
+      listen.addEventListener('click', function () {
+        if (!('speechSynthesis' in window)) return;
+        window.speechSynthesis.cancel();
+        const voice = new SpeechSynthesisUtterance(personName.textContent + ', o Chapéu Seletor escolheu ' + house.textContent + '. ' + message.textContent);
+        voice.lang = 'pt-BR';
+        voice.rate = .92;
+        window.speechSynthesis.speak(voice);
+        listen.textContent = '◉ Veredito em reprodução';
+        voice.onend = function () { listen.textContent = '◉ Ouvir o veredito'; };
+      });
+    }());
+  </script>
+</body>
+</html>
